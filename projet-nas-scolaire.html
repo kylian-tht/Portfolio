@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet NAS Scolaire - Kylian Thevenet</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <main>
+        <header>
+            <nav>
+                <div class="logo">Kylian Thevenet</div>
+                <ul>
+                    <li><a href="index.html#cv">CV</a></li>
+                    <li><a href="index.html#projets">Mes Projets</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="index.html#a-propos">À propos</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="container">
+            <div class="projet-detail">
+                <h2>Configuration d'un NAS (Projet Scolaire)</h2>
+                
+                <h3>Contexte du projet</h3>
+                <p>
+                    Dans le cadre de mon alternance, il m'a été confié la mission de mettre en place une solution de stockage centralisée, sécurisée et capable d'héberger des services applicatifs tiers. L'objectif principal était de fournir un espace de stockage résilient pour les données du CFA, tout en permettant l'exécution de services multimédias pour des tests internes, notamment via la solution Jellyfin.
+                </p>
+
+                <h3>Présentation du matériel : Synology DS920+</h3>
+                <p>Le choix s'est porté sur le modèle Synology DiskStation DS920+, un NAS à 4 baies adapté aux PME. Ses caractéristiques clés pour ce projet étaient :</p>
+                <ul>
+                    <li><strong>Processeur :</strong> Intel Celeron J4125 (4 cœurs), essentiel pour le transcodage vidéo matériel.</li>
+                    <li><strong>Mémoire RAM :</strong> 4 Go DDR4, permettant de faire tourner plusieurs conteneurs Docker.</li>
+                    <li><strong>Baies de disques :</strong> 4 emplacements pour une grande flexibilité de stockage.</li>
+                    <li><strong>Réseau :</strong> 2 ports RJ45 1GbE avec support de l'agrégation de liens.</li>
+                </ul>
+
+                <h3>Étapes de réalisation</h3>
+                <ul>
+                    <li><strong>Installation Physique :</strong> Montage sans outil de 4 disques durs de 4 To dans les racks, puis raccordement du NAS au switch réseau et à l'alimentation.</li>
+                    <li><strong>Déploiement de DSM :</strong> Utilisation de l'outil Web Assistant (find.synology.com) pour localiser le NAS sur le réseau. Installation du système d'exploitation DiskStation Manager (DSM) 7, qui s'installe en miroir sur tous les disques pour la redondance.</li>
+                    <li><strong>Configuration Administrative :</strong> Définition du nom du serveur (BTS_SIO_NAS), création d'un compte administrateur dédié (adminsio) et configuration des mises à jour de sécurité automatiques.</li>
+                    <li><strong>Architecture de Stockage (RAID 5 & Btrfs) :</strong>
+                        <ul>
+                            <li>Choix du <strong>RAID 5</strong> pour un compromis idéal entre performance, capacité de stockage (10.9 To utiles) et sécurité (tolérance à la panne d'un disque).</li>
+                            <li>Sélection du système de fichiers <strong>Btrfs</strong> pour ses fonctionnalités avancées : snapshots (protection contre les ransomwares) et auto-réparation des données corrompues grâce aux checksums.</li>
+                            <li>Création d'un groupe de stockage et d'un volume unique sur l'ensemble des disques.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Déploiement de Jellyfin via Docker :</strong>
+                        <ul>
+                            <li>Installation de <strong>Container Manager</strong> (l'interface Docker de Synology).</li>
+                            <li>Téléchargement de l'image officielle <code>jellyfin/jellyfin</code>.</li>
+                            <li>Création du conteneur en mappant les volumes pour la configuration (<code>/config</code>) et les médias (<code>/media</code>), et en configurant les permissions utilisateurs (PUID/PGID).</li>
+                            <li>Finalisation de la configuration via l'interface web de Jellyfin pour ajouter les bibliothèques multimédias.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3>Compétences acquises</h3>
+                <ul>
+                    <li><strong>Administration de serveur NAS :</strong> Installation, configuration et maintenance d'un Synology DiskStation Manager (DSM).</li>
+                    <li><strong>Architecture de stockage :</strong> Compréhension et mise en œuvre d'une configuration RAID 5 pour la redondance des données.</li>
+                    <li><strong>Systèmes de fichiers avancés :</strong> Utilisation de Btrfs pour garantir l'intégrité des données et la protection via snapshots.</li>
+                    <li><strong>Conteneurisation (Docker) :</strong> Déploiement d'une application (Jellyfin) de manière isolée et sécurisée à l'aide de Container Manager.</li>
+                    <li><strong>Gestion réseau :</strong> Configuration initiale d'un équipement sur un réseau d'entreprise (DHCP).</li>
+                    <li><strong>Sécurité des systèmes :</strong> Application des bonnes pratiques (création d'un admin dédié, gestion des mises à jour).</li>
+                </ul>
+
+                <h3>Conclusion et Perspectives</h3>
+                <p>
+                    Ce projet a permis de valider les compétences d'installation et d'administration d'un serveur NAS en environnement professionnel. Le Synology DS920+ est désormais opérationnel, offrant une solution de stockage résiliente et polyvalente. L'intégration de Jellyfin via Docker démontre la capacité du NAS à agir comme un serveur d'applications, dépassant son simple rôle de stockage. Les prochaines étapes consisteront à sécuriser l'accès extérieur.
+                </p>
+
+                <a href="index.html#projets" class="cta-button" style="margin-top: 30px;">Retour aux projets</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 - Kylian Thevenet. Tous droits réservés.</p>
+    </footer>
+
+</body>
+</html>

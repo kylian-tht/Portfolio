@@ -1,0 +1,277 @@
+/* --- Variables et Styles Généraux --- */
+:root {
+    --couleur-principale: #232931; /* Gris ardoise */
+    --couleur-secondaire: #e94560; /* Corail */
+    --couleur-texte: #e3e3e3;
+    --couleur-texte-sombre: #b0b0b0;
+    --font-principale: 'Poppins', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth; /* Pour un défilement fluide lors du clic sur les liens du menu */
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-principale);
+    background-color: var(--couleur-principale);
+    color: var(--couleur-texte);
+}
+
+.container {
+    padding: 80px 15%;
+}
+
+h1, h2 {
+    color: var(--couleur-secondaire);
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* --- Header et Navigation --- */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 20px 10%;
+    background-color: rgba(35, 41, 49, 0.85);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    transition: top 0.3s;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--couleur-secondaire);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--couleur-texte);
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--couleur-secondaire);
+}
+
+/* --- Section Hero (Introduction) --- */
+#hero {
+    position: relative; /* Nécessaire pour le positionnement de l'overlay */
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* On remplace la couleur de fond par une image */
+    background-image: linear-gradient(rgba(35, 41, 49, 0.7), rgba(35, 41, 49, 0.7)), url('images/background-hero.jpg');
+    background-size: cover; /* L'image couvre toute la section */
+    background-position: center; /* L'image est centrée */
+    background-attachment: fixed; /* Effet de parallaxe au défilement */
+}
+
+#hero h1 {
+    font-size: 4rem;
+    margin-bottom: 10px;
+}
+
+#hero p {
+    font-size: 1.2rem;
+    color: var(--couleur-texte-sombre);
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 12px 24px;
+    border: 1px solid var(--couleur-secondaire);
+    border-radius: 4px;
+    background-color: transparent;
+    color: var(--couleur-secondaire);
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: var(--couleur-secondaire);
+    color: var(--couleur-principale);
+}
+
+/* --- Section Projets --- */
+.projets-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.projet-carte {
+    background-color: #393e46; /* Un gris plus clair */
+    padding: 25px;
+    border-radius: 5px;
+    box-shadow: 0 10px 30px -15px rgba(2,12,27,0.7);
+    transition: transform 0.3s ease;
+}
+
+.projet-carte:hover {
+    transform: translateY(-10px);
+}
+
+.projet-lien {
+    text-decoration: none; /* Enlève le soulignement des liens de projet */
+    color: inherit; /* Fait en sorte que le lien hérite de la couleur du texte parent */
+}
+
+.projet-carte h3 {
+    color: var(--couleur-texte);
+    margin-top: 0;
+}
+
+.projet-carte p {
+    color: var(--couleur-texte-sombre);
+}
+
+/* --- Section CV --- */
+#cv {
+    text-align: center;
+    background-color: #393e46; /* Un gris plus clair pour la démarquer */
+}
+
+/* --- Section Compétences --- */
+.competences-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 25px;
+    justify-items: center;
+}
+
+.competence-carte {
+    background-color: #393e46;
+    border-radius: 5px;
+    padding: 20px;
+    width: 120px; /* Largeur fixe pour un alignement propre */
+    height: 120px; /* Hauteur fixe */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.competence-carte:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.competence-carte img {
+    height: 50px; /* Taille du logo */
+    margin-bottom: 15px;
+}
+
+.competence-carte h4 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: var(--couleur-texte-sombre);
+    font-size: 0.9rem;
+}
+
+.footer-links {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: var(--couleur-texte-sombre);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--couleur-secondaire);
+}
+
+/* --- Styles pour les pages de projet détaillées --- */
+.projet-detail {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+    background-color: #393e46;
+    padding: 30px;
+    border-radius: 5px;
+}
+
+.projet-detail h3 {
+    color: var(--couleur-secondaire);
+    margin-top: 25px;
+}
+.projet-detail ul {
+    list-style-position: inside;
+}
+
+/* --- Styles pour la modale du CV --- */
+.modal-overlay {
+    display: none; /* Cachée par défaut */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Fond noir semi-transparent */
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    position: relative;
+    width: 90%;
+    height: 90%;
+    background-color: var(--couleur-principale);
+    border-radius: 5px;
+    padding: 20px;
+    box-sizing: border-box; /* Pour que le padding ne s'ajoute pas à la taille */
+}
+
+.close-button {
+    position: absolute;
+    top: -5px;
+    right: 15px;
+    color: var(--couleur-texte);
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover {
+    color: var(--couleur-secondaire);
+}
+
+.modal-content iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 3px;
+}

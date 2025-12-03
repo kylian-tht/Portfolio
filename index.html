@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio de Kylian Thevenet</title>
+    <!-- On lie notre future feuille de style CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- On importe une police moderne depuis Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <main>
+        <header>
+            <nav>
+                <div class="logo"><a href="#">Kylian Thevenet</a></div>
+                <ul>
+                    <li><a href="#a-propos">À propos</a></li>
+                    <li><a href="#cv">CV</a></li>
+                    <li><a href="#competences">Compétences</a></li>
+                    <li><a href="#projets">Mes Projets</a></li>
+                    <li><a href="tableau-synthese.pdf" target="_blank">Tableau de synthèse</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <!-- Section d'introduction -->
+        <section id="hero" class="container">
+            <div class="hero-content">
+                <h1>Bonjour, je suis Kylian Thevenet</h1>
+                <p>Réparateur d'ordinateur et technicien informatique en alternance.</p>
+                <a href="#projets" class="cta-button">Découvrir mes projets</a>
+            </div>
+        </section>
+
+        <!-- Section À propos -->
+        <section id="a-propos" class="container">
+            <h2>À propos de moi</h2>
+            <p>
+                À 19 ans et actuellement en formation BTS SIO, je suis en alternance chez JLB Formatic en tant que réparateur d'ordinateur et technicien informatique.
+                Je suis curieux, rigoureux et toujours prêt à apprendre de nouvelles technologies pour monter en compétences. Ce portfolio présente les différentes missions et projets que j'ai pu réaliser.
+            </p>
+        </section>
+
+        <!-- Section CV -->
+        <section id="cv" class="container">
+            <h2>CV</h2>
+            <p>
+                Consultez mon parcours professionnel et mes compétences en détail.
+                Cliquez sur le bouton ci-dessous pour ouvrir mon CV.
+            </p>
+            <a href="#" id="open-cv-modal" class="cta-button">Ouvrir mon CV</a>
+        </section>
+
+        <!-- Section Compétences -->
+        <section id="competences" class="container">
+            <h2>Mes Compétences Techniques</h2>
+            <div class="competences-grid">
+                <div class="competence-carte">
+                    <img src="images/logos/windows-server.svg" alt="Logo Windows Server">
+                    <h4>Windows Server</h4>
+                </div>
+                <div class="competence-carte">
+                    <img src="images/logos/linux.svg" alt="Logo Linux">
+                    <h4>Linux</h4>
+                </div>
+                <div class="competence-carte">
+                    <img src="images/logos/synology.svg" alt="Logo Synology">
+                    <h4>Synology DSM</h4>
+                </div>
+                <div class="competence-carte">
+                    <img src="images/logos/docker.svg" alt="Logo Docker">
+                    <h4>Docker</h4>
+                </div>
+                <div class="competence-carte">
+                    <img src="images/logos/hardware.svg" alt="Icône matériel">
+                    <h4>Réparation Matériel</h4>
+                </div>
+                <div class="competence-carte">
+                    <img src="images/logos/network.svg" alt="Icône réseau">
+                    <h4>Réseautage</h4>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Projets -->
+        <section id="projets" class="container">
+            <h2>Mes Projets chez JLB Formatic</h2>
+            <div class="projets-grid">
+                <!-- Projet 1 -->
+                <a href="projet-nas-scolaire.html" class="projet-lien">
+                    <div class="projet-carte">
+                        <h3>Configuration d'un NAS (Projet Scolaire)</h3>
+                        <p>Conception et déploiement d'un serveur de stockage en réseau (NAS) dans un cadre scolaire, incluant le choix du matériel, l'installation du système et la configuration des services de partage.</p>
+                    </div>
+                </a>
+                <!-- Projet 2 -->
+                <a href="projet-nas-entreprise.html" class="projet-lien">
+                    <div class="projet-carte">
+                        <h3>Déploiement d'un NAS (JLB Formatic)</h3>
+                        <p>Mise en production d'une solution NAS en environnement professionnel pour la centralisation, la sécurisation et la sauvegarde automatisée des données critiques de l'entreprise.</p>
+                    </div>
+                </a>
+                <!-- Tu peux ajouter d'autres projets ici en copiant une div "projet-carte" -->
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="https://github.com/kylian-tht" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+        <p>&copy; 2025 - Kylian Thevenet. Tous droits réservés.</p>
+    </footer>
+
+    <!-- Modale pour le CV -->
+    <div id="cv-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span id="close-cv-modal" class="close-button">&times;</span>
+            <!-- Le bouton "Retour" est le bouton de fermeture ci-dessus -->
+            <iframe src="cv.pdf" title="CV de Kylian Thevenet"></iframe>
+        </div>
+    </div>
+
+    <!-- On lie notre fichier JavaScript -->
+    <script src="main.js"></script>
+
+</body>
+</html>
