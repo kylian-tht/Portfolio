@@ -6,7 +6,7 @@ Bienvenue sur le dépôt de mon portfolio personnel ! Ce projet est un site web 
 
 Vous pouvez consulter la version en ligne du site ici : **[Lien vers votre site]** *(pensez à remplacer ce lien par l'URL de votre site une fois déployé, par exemple avec GitHub Pages)*.
 
-![Aperçu du site](lien_vers_votre_screenshot.png)
+![Aperçu du site](https://raw.githubusercontent.com/kylian-tht/Portfolio/refs/heads/main/images/Screen.png)
 *(Pensez à ajouter une capture d'écran de votre site dans le dépôt et à mettre à jour ce lien)*
 
 ## 🛠️ Technologies utilisées
@@ -35,5 +35,6 @@ Le portfolio détaille plusieurs réalisations, notamment :
 Aucune installation n'est requise. Pour visualiser le site en local, il vous suffit de cloner ce dépôt et d'ouvrir le fichier `index.html` dans votre navigateur web.
 
 ## 📫 Contact
+
 
 Pour toute question ou proposition, n'hésitez pas à me contacter via la section Contact du site.
