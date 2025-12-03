@@ -27,7 +27,6 @@ Le site est composé de plusieurs pages et sections :
 Le portfolio détaille plusieurs réalisations, notamment :
 
 *   **Mise en place d'un NAS pour Techniciens** : Déploiement d'une solution de stockage centralisée pour des logiciels, procédures et scripts, avec gestion des accès et sauvegardes.
-*   *(Ajoutez ici d'autres projets si nécessaire)*
 
 ## 💻 Lancement
 
@@ -37,4 +36,5 @@ Aucune installation n'est requise. Pour visualiser le site en local, il vous suf
 
 
 Pour toute question ou proposition, n'hésitez pas à me contacter via la section Contact du site.
+
 
