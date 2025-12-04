@@ -8,7 +8,7 @@ Vous pouvez consulter la version en ligne du site ici : **https://kylian-tht.git
 
 ![Aperçu du site](https://raw.githubusercontent.com/kylian-tht/Portfolio/refs/heads/main/images/Screen.png)
 
-## 🛠️ Technologies utilisées
+##  Technologies utilisées
 
 *   **HTML5** : Pour la structure sémantique du site.
 *   **CSS3** : Pour la mise en forme et le design.
@@ -32,8 +32,9 @@ Le portfolio détaille plusieurs réalisations, notamment :
 
 Aucune installation n'est requise. Pour visualiser le site en local, il vous suffit de cloner ce dépôt et d'ouvrir le fichier `index.html` dans votre navigateur web.
 
-## 📫 Contact
+##  Contact
 
 
 Pour toute question ou proposition, n'hésitez pas à me contacter via la section Contact du site.
+
 
