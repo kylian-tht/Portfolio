@@ -2,7 +2,7 @@
 
 Bienvenue sur le dépôt de mon portfolio personnel ! Ce projet est un site web statique développé en HTML et CSS pour présenter mon profil, mes compétences et les projets sur lesquels j'ai travaillé.
 
-## 🚀 Aperçu
+##  Aperçu
 
 Vous pouvez consulter la version en ligne du site ici : **https://kylian-tht.github.io/Portfolio/**.
 
@@ -14,7 +14,7 @@ Vous pouvez consulter la version en ligne du site ici : **https://kylian-tht.git
 *   **CSS3** : Pour la mise en forme et le design.
 *   **Google Fonts** : Pour la typographie (`Poppins`).
 
-## 📂 Structure du projet
+##  Structure du projet
 
 Le site est composé de plusieurs pages et sections :
 
@@ -22,13 +22,13 @@ Le site est composé de plusieurs pages et sections :
 *   `projet-nas-entreprise.html` : Une page de détail pour un projet spécifique.
 *   `style.css` : La feuille de style principale.
 
-## 💡 Projets mis en avant
+##  Projets mis en avant
 
 Le portfolio détaille plusieurs réalisations, notamment :
 
 *   **Mise en place d'un NAS pour Techniciens** : Déploiement d'une solution de stockage centralisée pour des logiciels, procédures et scripts, avec gestion des accès et sauvegardes.
 
-## 💻 Lancement
+##  Lancement
 
 Aucune installation n'est requise. Pour visualiser le site en local, il vous suffit de cloner ce dépôt et d'ouvrir le fichier `index.html` dans votre navigateur web.
 
@@ -36,3 +36,4 @@ Aucune installation n'est requise. Pour visualiser le site en local, il vous suf
 
 
 Pour toute question ou proposition, n'hésitez pas à me contacter via la section Contact du site.
+
