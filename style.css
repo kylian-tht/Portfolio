@@ -114,6 +114,40 @@ nav a:hover {
     color: var(--couleur-principale);
 }
 
+/* --- Section À propos --- */
+.a-propos-content {
+    display: flex;
+    align-items: flex-start; /* Aligne le haut du texte avec le haut de l'image */
+    gap: 40px;
+}
+
+.a-propos-photo {
+    flex-basis: 250px; /* Largeur de base pour la photo */
+    flex-shrink: 0; /* Empêche l'image de se réduire */
+}
+
+.a-propos-photo img {
+    width: 100%;
+    border-radius: 10px;
+    /* Au cas où l'image ne se charge pas */
+    background-color: #393e46;
+    aspect-ratio: 1 / 1; /* Force un format carré */
+    object-fit: cover; /* S'assure que l'image remplit l'espace sans se déformer */
+}
+
+.a-propos-texte h3 {
+    color: var(--couleur-secondaire);
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.a-propos-texte p {
+    line-height: 1.7;
+}
+.a-propos-texte a {
+    color: var(--couleur-secondaire);
+}
+
 /* --- Section Projets --- */
 .projets-grid {
     display: grid;
@@ -228,6 +262,79 @@ footer {
 }
 .projet-detail ul {
     list-style-position: inside;
+}
+
+/* --- Section Contact --- */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Espace entre les groupes de champs */
+    max-width: 600px; /* Limite la largeur du formulaire */
+    margin: 2rem auto 0; /* Centre le formulaire et ajoute de l'espace au-dessus */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--couleur-secondaire); /* Utilisation de la couleur corail */
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 0.8rem 1rem;
+    border: 1px solid #4a5058; /* Bordure plus adaptée au thème sombre */
+    border-radius: 8px; /* Bords plus arrondis */
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    background-color: #393e46; /* Fond des champs */
+    color: var(--couleur-texte); /* Couleur du texte saisi */
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--couleur-secondaire); /* Change la couleur de la bordure au focus */
+    box-shadow: 0 0 8px rgba(233, 69, 96, 0.3); /* Ombre douce assortie */
+}
+
+/* --- Section Veille Technologique --- */
+#veille {
+    background-color: #393e46; /* Fond légèrement différent pour la démarquer */
+}
+
+.veille-grid {
+    /* On centre le seul élément de veille */
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.veille-sujet h3 {
+    color: var(--couleur-secondaire);
+    margin-top: 0;
+}
+
+.veille-sujet ul {
+    padding-left: 20px;
+}
+
+.veille-sujet li {
+    margin-bottom: 10px;
+}
+
+.rss-feed {
+    border: 1px dashed var(--couleur-secondaire);
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 5px;
+    background-color: rgba(35, 41, 49, 0.5);
+    min-height: 100px;
+    text-align: center;
 }
 
 /* --- Styles pour la modale du CV --- */

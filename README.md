@@ -4,9 +4,10 @@ Bienvenue sur le dépôt de mon portfolio personnel ! Ce projet est un site web 
 
 ## 🚀 Aperçu
 
-Vous pouvez consulter la version en ligne du site ici : **https://kylian-tht.github.io/Portfolio/**.
+Vous pouvez consulter la version en ligne du site ici : **[Lien vers votre site]** *(pensez à remplacer ce lien par l'URL de votre site une fois déployé, par exemple avec GitHub Pages)*.
 
-![Aperçu du site](https://raw.githubusercontent.com/kylian-tht/Portfolio/refs/heads/main/images/Screen.png)
+![Aperçu du site](lien_vers_votre_screenshot.png)
+*(Pensez à ajouter une capture d'écran de votre site dans le dépôt et à mettre à jour ce lien)*
 
 ## 🛠️ Technologies utilisées
 
@@ -27,6 +28,7 @@ Le site est composé de plusieurs pages et sections :
 Le portfolio détaille plusieurs réalisations, notamment :
 
 *   **Mise en place d'un NAS pour Techniciens** : Déploiement d'une solution de stockage centralisée pour des logiciels, procédures et scripts, avec gestion des accès et sauvegardes.
+*   *(Ajoutez ici d'autres projets si nécessaire)*
 
 ## 💻 Lancement
 
@@ -34,8 +36,4 @@ Aucune installation n'est requise. Pour visualiser le site en local, il vous suf
 
 ## 📫 Contact
 
-
 Pour toute question ou proposition, n'hésitez pas à me contacter via la section Contact du site.
-
-
-

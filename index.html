@@ -22,7 +22,9 @@
                     <li><a href="#cv">CV</a></li>
                     <li><a href="#competences">Compétences</a></li>
                     <li><a href="#projets">Mes Projets</a></li>
-                    <li><a href="tableau-synthese.pdf" target="_blank">Tableau de synthèse</a></li>
+                    <li><a href="tableau de synthèse . XLSX" target="_blank">Tableau de synthèse</a></li>
+                    <li><a href="#veille">Veille Technologique</a></li>
+                    <li><a href="#contact">Me contacter</a></li>
                 </ul>
             </nav>
         </header>
@@ -38,11 +40,30 @@
 
         <!-- Section À propos -->
         <section id="a-propos" class="container">
-            <h2>À propos de moi</h2>
-            <p>
-                À 19 ans et actuellement en formation BTS SIO, je suis en alternance chez JLB Formatic en tant que réparateur d'ordinateur et technicien informatique.
-                Je suis curieux, rigoureux et toujours prêt à apprendre de nouvelles technologies pour monter en compétences. Ce portfolio présente les différentes missions et projets que j'ai pu réaliser.
-            </p>
+             <h2>À propos de moi</h2>
+             <div class="a-propos-content">
+                 <div class="a-propos-photo">
+                     <!-- J'ai ajouté le chemin vers votre photo. Assurez-vous d'avoir un fichier "photo-profil.jpg" dans votre dossier "images" -->
+                     <img src="images/photo-profil.jpg" alt="Photo de Kylian Thevenet">
+                 </div>
+                 <div class="a-propos-texte">
+                     <h3>Qui suis-je ?</h3>
+                     <p>
+                         À 19 ans et actuellement en formation BTS SIO, je suis en alternance chez JLB Formatic en tant que réparateur d'ordinateur et technicien informatique.
+                         Je me définis comme quelqu'un de curieux, rigoureux et toujours prêt à apprendre de nouvelles technologies pour monter en compétences.
+                     </p>
+ 
+                     <h3>Expériences Professionnelles</h3>
+                     <p>
+                         Mon expérience principale se déroule chez <strong>JLB Formatic</strong>, où mes missions s'articulent principalement autour de la maintenance matérielle (hardware) et logicielle. J'interviens sur la réparation d'ordinateurs et de téléphones, ainsi que sur la gestion des systèmes d'exploitation, qu'il s'agisse des mises à jour et réparations sur Windows ou d'interventions sur Linux.
+                     </p>
+ 
+                     <h3>Objectifs et centres d'intérêt</h3>
+                     <p>
+                         Mon projet professionnel est de me spécialiser en tant que <strong>réparateur informatique multimarques</strong>, avec l'ambition de proposer mes services directement à domicile. En dehors de la technologie, je suis un grand amateur de parcs d'attractions et de toutes les activités qui sortent de l'ordinaire et procurent des sensations fortes.
+                     </p>
+                 </div>
+             </div>
         </section>
 
         <!-- Section CV -->
@@ -76,11 +97,11 @@
                     <h4>Docker</h4>
                 </div>
                 <div class="competence-carte">
-                    <img src="/images/logos/hardware.svg" alt="Icône matériel">
+                    <img src="images/logos/hardware.svg" alt="Icône matériel">
                     <h4>Réparation Matériel</h4>
                 </div>
                 <div class="competence-carte">
-                    <img src="/images/logos/network.svg" alt="Icône réseau">
+                    <img src="images/logos/network.svg" alt="Icône réseau">
                     <h4>Réseautage</h4>
                 </div>
             </div>
@@ -108,6 +129,64 @@
             </div>
         </section>
 
+        <!-- Section Veille Technologique -->
+        <section id="veille" class="container">
+            <h2>Veille Technologique</h2>
+            <div class="veille-grid">
+                <!-- Sujet 1 -->
+                <div class="veille-sujet">
+                    <h3>Actualités Tech & Cybersécurité</h3>
+                    <p><strong>Présentation :</strong> Ma veille se concentre sur l'actualité générale du monde de la tech, du matériel informatique et de la cybersécurité. Je suis les dernières tendances, les nouvelles sorties de produits et les vulnérabilités pour rester constamment à jour.</p>
+                    <p><strong>Lien avec mon projet :</strong> En tant que futur réparateur, cette veille généraliste est cruciale. Elle me permet de comprendre les nouveaux écosystèmes matériels et logiciels, d'anticiper les pannes courantes sur les nouveaux produits et de conseiller mes clients sur les bonnes pratiques de sécurité.</p>
+                    
+                    <h4>Actualités du sujet</h4>
+                    <div class="rss-feed">
+                        <!--
+                            INSTRUCTIONS pour le flux RSS :
+                            1. Allez sur un site comme https://www.elfsight.com/rss-feed-widget/ ou https://feed.informer.com/.
+                            2. Créez un widget en ajoutant l'URL du flux RSS de Korben (ex: https://korben.info/feed).
+                            3. Personnalisez le style du widget pour qu'il corresponde à votre site.
+                            4. Copiez-collez le code HTML/JavaScript fourni par le service ici-même.
+                        -->
+                        <p class="rss-placeholder">L'intégration du flux RSS de Korben.info affichera ici les dernières actualités automatiquement.</p>
+                    </div>
+
+                    <h4>Mes sources d'information</h4>
+                    <ul>
+                        <li>Frandroid : Pour l'actualité des nouvelles technologies et des produits grand public.</li>
+                        <li>Micode (YouTube) : Pour la vulgarisation sur la cybersécurité et les sujets tech complexes.</li>
+                        <li>Guillaume (YouTube) : Pour des analyses et des actualités sur le monde de la tech.</li>
+                        <li>Tech2Tech - Mikaël (YouTube) : Pour des tests et des actualités sur le matériel informatique.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Contact -->
+        <section id="contact" class="container">
+             <h2>Me contacter</h2>
+             <p>
+                 N'hésitez pas à me contacter pour toute question ou opportunité professionnelle en utilisant le formulaire ci-dessous.
+             </p>
+             <!-- Ce formulaire ouvrira le client de messagerie par défaut de l'utilisateur -->
+             <form id="contact-form" class="contact-form">
+                 <div class="form-group">
+                     <label for="name">Nom & Prénom</label>
+                     <input type="text" id="name" name="name" required>
+                 </div>
+                 <div class="form-group">
+                     <label for="subject">Objet du mail</label>
+                     <input type="text" id="subject" name="subject" required>
+                 </div>
+                 <div class="form-group">
+                     <label for="message">Votre message (contexte)</label>
+                     <textarea id="message" name="message" rows="5" required></textarea>
+                 </div>
+                 <!-- Pensez à remplacer l'adresse email dans le fichier main.js -->
+                 <button type="submit" class="cta-button">Envoyer l'e-mail</button>
+             </form>
+        </section>
+
     </main>
 
     <footer>
@@ -128,7 +207,25 @@
 
     <!-- On lie notre fichier JavaScript -->
     <script src="main.js"></script>
+    <script>
+        // Ajout du script pour gérer le formulaire de contact
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Empêche l'envoi classique du formulaire
+
+            // Remplacez cette adresse par la vôtre
+            const recipientEmail = 'votre.email@exemple.com';
+
+            const name = document.getElementById('name').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+
+            // Construit le corps de l'e-mail avec le nom de l'expéditeur
+            const body = `Message de : ${name}\n\n${message}`;
+
+            // Crée et ouvre le lien mailto:
+            window.location.href = `mailto:${recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        });
+    </script>
 
 </body>
 </html>
-
