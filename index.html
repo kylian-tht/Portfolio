@@ -3,61 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio de Kylian Thevenet</title>
-    <!-- On lie notre future feuille de style CSS -->
+    <title>Portfolio de Kylian Thevenet | BTS SIO - Cybersécurité</title>
+    <meta name="description" content="Portfolio de Kylian Thevenet, étudiant en BTS SIO option Cybersécurité. Découvrez mes projets, compétences et parcours professionnel.">
     <link rel="stylesheet" href="style.css">
-    <!-- On importe une police moderne depuis Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Grille de fond animée -->
+    <div class="cyber-grid"></div>
 
     <main>
-        <header>
+        <header id="header">
             <nav>
                 <div class="logo"><a href="#">Kylian Thevenet</a></div>
-                <ul>
+                <div class="menu-toggle" id="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul id="nav-menu">
                     <li><a href="#a-propos">À propos</a></li>
                     <li><a href="#cv">CV</a></li>
                     <li><a href="#competences">Compétences</a></li>
                     <li><a href="#projets">Mes Projets</a></li>
-                    <li><a href="tableau de synthèse . XLSX" target="_blank">Tableau de synthèse</a></li>
+                    <li><a href="Tableau-synthese.pdf" target="_blank">Tableau de synthèse</a></li>
                     <li><a href="#veille">Veille Technologique</a></li>
                     <li><a href="#contact">Me contacter</a></li>
                 </ul>
             </nav>
         </header>
-        
+
         <!-- Section d'introduction -->
         <section id="hero" class="container">
             <div class="hero-content">
-                <h1>Bonjour, je suis Kylian Thevenet</h1>
+                <span class="cyber-badge">Cybersécurité & Réseaux</span>
+                <h1>
+                    <span id="typing-text"></span>
+                    <span class="typing-cursor"></span>
+                </h1>
+                <p class="hero-subtitle">init_portfolio.bat --run</p>
                 <p>Réparateur d'ordinateur et technicien informatique en alternance.</p>
                 <a href="#projets" class="cta-button">Découvrir mes projets</a>
+            </div>
+            <div class="scroll-indicator">
+                <span>Scroll</span>
+                <div class="mouse"></div>
             </div>
         </section>
 
         <!-- Section À propos -->
         <section id="a-propos" class="container">
-             <h2>À propos de moi</h2>
-             <div class="a-propos-content">
+             <h2 class="glitch-hover">À propos de moi</h2>
+             <div class="a-propos-content reveal">
                  <div class="a-propos-photo">
-                     <!-- J'ai ajouté le chemin vers votre photo. Assurez-vous d'avoir un fichier "photo-profil.jpg" dans votre dossier "images" -->
                      <img src="images/photo-profil.jpg" alt="Photo de Kylian Thevenet">
                  </div>
                  <div class="a-propos-texte">
                      <h3>Qui suis-je ?</h3>
                      <p>
-                         À 19 ans et actuellement en formation BTS SIO, je suis en alternance chez JLB Formatic en tant que réparateur d'ordinateur et technicien informatique.
+                         À 19 ans et actuellement en formation <strong>BTS SIO</strong>, je suis en alternance chez <strong>JLB Formatic</strong> en tant que réparateur d'ordinateur et technicien informatique.
                          Je me définis comme quelqu'un de curieux, rigoureux et toujours prêt à apprendre de nouvelles technologies pour monter en compétences.
                      </p>
- 
+
                      <h3>Expériences Professionnelles</h3>
                      <p>
                          Mon expérience principale se déroule chez <strong>JLB Formatic</strong>, où mes missions s'articulent principalement autour de la maintenance matérielle (hardware) et logicielle. J'interviens sur la réparation d'ordinateurs et de téléphones, ainsi que sur la gestion des systèmes d'exploitation, qu'il s'agisse des mises à jour et réparations sur Windows ou d'interventions sur Linux.
                      </p>
- 
+
                      <h3>Objectifs et centres d'intérêt</h3>
                      <p>
                          Mon projet professionnel est de me spécialiser en tant que <strong>réparateur informatique multimarques</strong>, avec l'ambition de proposer mes services directement à domicile. En dehors de la technologie, je suis un grand amateur de parcs d'attractions et de toutes les activités qui sortent de l'ordinaire et procurent des sensations fortes.
@@ -68,40 +82,40 @@
 
         <!-- Section CV -->
         <section id="cv" class="container">
-            <h2>CV</h2>
-            <p>
+            <h2 class="glitch-hover">CV</h2>
+            <p class="reveal">
                 Consultez mon parcours professionnel et mes compétences en détail.
                 Cliquez sur le bouton ci-dessous pour ouvrir mon CV.
             </p>
-            <a href="#" id="open-cv-modal" class="cta-button">Ouvrir mon CV</a>
+            <a href="#" id="open-cv-modal" class="cta-button reveal reveal-delay-1">Ouvrir mon CV</a>
         </section>
 
         <!-- Section Compétences -->
         <section id="competences" class="container">
-            <h2>Mes Compétences Techniques</h2>
+            <h2 class="glitch-hover">Mes Compétences Techniques</h2>
             <div class="competences-grid">
-                <div class="competence-carte">
-                    <img src="images/logos/windows-server.svg" alt="Logo Windows Server">
+                <div class="competence-carte reveal reveal-delay-1">
+                    <img src="images/Logos/windows-server.svg" alt="Logo Windows Server">
                     <h4>Windows Server</h4>
                 </div>
-                <div class="competence-carte">
-                    <img src="images/logos/linux.svg" alt="Logo Linux">
+                <div class="competence-carte reveal reveal-delay-2">
+                    <img src="images/Logos/linux.svg" alt="Logo Linux">
                     <h4>Linux</h4>
                 </div>
-                <div class="competence-carte">
-                    <img src="images/logos/synology.svg" alt="Logo Synology">
+                <div class="competence-carte reveal reveal-delay-3">
+                    <img src="images/Logos/Synology.svg" alt="Logo Synology">
                     <h4>Synology DSM</h4>
                 </div>
-                <div class="competence-carte">
-                    <img src="images/logos/docker.svg" alt="Logo Docker">
+                <div class="competence-carte reveal reveal-delay-4">
+                    <img src="images/Logos/docker.svg" alt="Logo Docker">
                     <h4>Docker</h4>
                 </div>
-                <div class="competence-carte">
-                    <img src="images/logos/hardware.svg" alt="Icône matériel">
+                <div class="competence-carte reveal reveal-delay-1">
+                    <img src="images/Logos/hardware.svg" alt="Icône matériel">
                     <h4>Réparation Matériel</h4>
                 </div>
-                <div class="competence-carte">
-                    <img src="images/logos/network.svg" alt="Icône réseau">
+                <div class="competence-carte reveal reveal-delay-2">
+                    <img src="images/Logos/network.svg" alt="Icône réseau">
                     <h4>Réseautage</h4>
                 </div>
             </div>
@@ -109,45 +123,36 @@
 
         <!-- Section Projets -->
         <section id="projets" class="container">
-            <h2>Mes Projets chez JLB Formatic</h2>
+            <h2 class="glitch-hover">Mes Projets chez JLB Formatic</h2>
             <div class="projets-grid">
                 <!-- Projet 1 -->
                 <a href="projet-nas-scolaire.html" class="projet-lien">
-                    <div class="projet-carte">
+                    <div class="projet-carte reveal reveal-delay-1">
                         <h3>Configuration d'un NAS (Projet Scolaire)</h3>
                         <p>Conception et déploiement d'un serveur de stockage en réseau (NAS) dans un cadre scolaire, incluant le choix du matériel, l'installation du système et la configuration des services de partage.</p>
                     </div>
                 </a>
                 <!-- Projet 2 -->
-                <a href="projet-nas-entreprise.html" class="projet-lien">
-                    <div class="projet-carte">
+                <a href="projet-proxmox.html" class="projet-lien">
+                    <div class="projet-carte reveal reveal-delay-2">
                         <h3>Déploiement d'un NAS (JLB Formatic)</h3>
                         <p>Mise en production d'une solution NAS en environnement professionnel pour la centralisation, la sécurisation et la sauvegarde automatisée des données critiques de l'entreprise.</p>
                     </div>
                 </a>
-                <!-- Tu peux ajouter d'autres projets ici en copiant une div "projet-carte" -->
             </div>
         </section>
 
         <!-- Section Veille Technologique -->
         <section id="veille" class="container">
-            <h2>Veille Technologique</h2>
+            <h2 class="glitch-hover">Veille Technologique</h2>
             <div class="veille-grid">
-                <!-- Sujet 1 -->
-                <div class="veille-sujet">
+                <div class="veille-sujet reveal">
                     <h3>Actualités Tech & Cybersécurité</h3>
                     <p><strong>Présentation :</strong> Ma veille se concentre sur l'actualité générale du monde de la tech, du matériel informatique et de la cybersécurité. Je suis les dernières tendances, les nouvelles sorties de produits et les vulnérabilités pour rester constamment à jour.</p>
                     <p><strong>Lien avec mon projet :</strong> En tant que futur réparateur, cette veille généraliste est cruciale. Elle me permet de comprendre les nouveaux écosystèmes matériels et logiciels, d'anticiper les pannes courantes sur les nouveaux produits et de conseiller mes clients sur les bonnes pratiques de sécurité.</p>
-                    
+
                     <h4>Actualités du sujet</h4>
                     <div class="rss-feed">
-                        <!--
-                            INSTRUCTIONS pour le flux RSS :
-                            1. Allez sur un site comme https://www.elfsight.com/rss-feed-widget/ ou https://feed.informer.com/.
-                            2. Créez un widget en ajoutant l'URL du flux RSS de Korben (ex: https://korben.info/feed).
-                            3. Personnalisez le style du widget pour qu'il corresponde à votre site.
-                            4. Copiez-collez le code HTML/JavaScript fourni par le service ici-même.
-                        -->
                         <p class="rss-placeholder">L'intégration du flux RSS de Korben.info affichera ici les dernières actualités automatiquement.</p>
                     </div>
 
@@ -164,25 +169,23 @@
 
         <!-- Section Contact -->
         <section id="contact" class="container">
-             <h2>Me contacter</h2>
-             <p>
+             <h2 class="glitch-hover">Me contacter</h2>
+             <p class="reveal">
                  N'hésitez pas à me contacter pour toute question ou opportunité professionnelle en utilisant le formulaire ci-dessous.
              </p>
-             <!-- Ce formulaire ouvrira le client de messagerie par défaut de l'utilisateur -->
-             <form id="contact-form" class="contact-form">
+             <form id="contact-form" class="contact-form reveal reveal-delay-1">
                  <div class="form-group">
                      <label for="name">Nom & Prénom</label>
-                     <input type="text" id="name" name="name" required>
+                     <input type="text" id="name" name="name" required placeholder="Votre nom complet">
                  </div>
                  <div class="form-group">
                      <label for="subject">Objet du mail</label>
-                     <input type="text" id="subject" name="subject" required>
+                     <input type="text" id="subject" name="subject" required placeholder="Objet de votre message">
                  </div>
                  <div class="form-group">
                      <label for="message">Votre message (contexte)</label>
-                     <textarea id="message" name="message" rows="5" required></textarea>
+                     <textarea id="message" name="message" rows="5" required placeholder="Décrivez votre message..."></textarea>
                  </div>
-                 <!-- Pensez à remplacer l'adresse email dans le fichier main.js -->
                  <button type="submit" class="cta-button">Envoyer l'e-mail</button>
              </form>
         </section>
@@ -200,32 +203,10 @@
     <div id="cv-modal" class="modal-overlay">
         <div class="modal-content">
             <span id="close-cv-modal" class="close-button">&times;</span>
-            <!-- Le bouton "Retour" est le bouton de fermeture ci-dessus -->
             <iframe src="cv.pdf" title="CV de Kylian Thevenet"></iframe>
         </div>
     </div>
 
-    <!-- On lie notre fichier JavaScript -->
     <script src="main.js"></script>
-    <script>
-        // Ajout du script pour gérer le formulaire de contact
-        document.getElementById('contact-form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Empêche l'envoi classique du formulaire
-
-            // Remplacez cette adresse par la vôtre
-            const recipientEmail = 'votre.email@exemple.com';
-
-            const name = document.getElementById('name').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-
-            // Construit le corps de l'e-mail avec le nom de l'expéditeur
-            const body = `Message de : ${name}\n\n${message}`;
-
-            // Crée et ouvre le lien mailto:
-            window.location.href = `mailto:${recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        });
-    </script>
-
 </body>
 </html>
