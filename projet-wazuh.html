@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet Wazuh SIEM/XDR - Kylian Thevenet</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        .projet-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .projet-badge {
+            background: linear-gradient(135deg, rgba(233, 69, 96, 0.2), rgba(0, 255, 136, 0.1));
+            border: 1px solid var(--couleur-secondaire);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--cyber-green);
+            font-family: var(--font-mono);
+        }
+
+        .projet-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(57, 62, 70, 0.5);
+            border-radius: 10px;
+            border: 1px solid rgba(233, 69, 96, 0.1);
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .meta-label {
+            font-size: 0.8rem;
+            color: var(--couleur-texte-sombre);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .meta-value {
+            font-weight: 600;
+            color: var(--couleur-secondaire);
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            margin: 30px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--couleur-secondaire), transparent);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 20px;
+            margin-bottom: 20px;
+            background: rgba(57, 62, 70, 0.3);
+            border-radius: 8px;
+            border-left: 3px solid var(--couleur-secondaire);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            background: rgba(57, 62, 70, 0.5);
+            transform: translateX(5px);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -36px;
+            top: 25px;
+            width: 12px;
+            height: 12px;
+            background: var(--couleur-secondaire);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--glow-color);
+        }
+
+        .timeline-number {
+            font-family: var(--font-mono);
+            color: var(--cyber-green);
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .tech-item {
+            background: rgba(57, 62, 70, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid rgba(233, 69, 96, 0.1);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tech-item:hover {
+            border-color: var(--couleur-secondaire);
+            box-shadow: 0 0 15px var(--glow-color);
+        }
+
+        .tech-item img { height: 40px; }
+
+        .tech-item .tech-icon {
+            height: 40px;
+            width: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tech-item span {
+            font-size: 0.85rem;
+            color: var(--couleur-texte-sombre);
+        }
+
+        .competences-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .competences-table th,
+        .competences-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(233, 69, 96, 0.1);
+        }
+
+        .competences-table th {
+            background: rgba(233, 69, 96, 0.1);
+            color: var(--couleur-secondaire);
+            font-weight: 600;
+        }
+
+        .competences-table tr:hover td {
+            background: rgba(57, 62, 70, 0.3);
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .result-card {
+            background: rgba(57, 62, 70, 0.5);
+            border: 1px solid rgba(233, 69, 96, 0.15);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .result-card:hover {
+            border-color: var(--couleur-secondaire);
+            box-shadow: 0 0 20px var(--glow-color);
+        }
+
+        .result-number {
+            font-family: var(--font-mono);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--couleur-secondaire);
+            display: block;
+        }
+
+        .result-label {
+            font-size: 0.85rem;
+            color: var(--couleur-texte-sombre);
+            margin-top: 5px;
+        }
+
+        .download-section {
+            margin-top: 40px;
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(233, 69, 96, 0.1), rgba(0, 255, 136, 0.05));
+            border-radius: 10px;
+            border: 1px dashed var(--couleur-secondaire);
+            text-align: center;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            background: var(--couleur-secondaire);
+            color: var(--couleur-principale);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
+            box-shadow: 0 0 30px var(--glow-color);
+            transform: translateY(-2px);
+        }
+
+        .code-block {
+            background: rgba(35, 41, 49, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 3px solid var(--couleur-secondaire);
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            overflow-x: auto;
+            margin: 15px 0;
+            line-height: 1.8;
+        }
+
+        .code-block code { color: var(--cyber-green); }
+
+        /* === SCREENSHOTS === */
+        .screenshot-wrap {
+            margin: 18px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(233, 69, 96, 0.25);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+            background: #1a1e24;
+            cursor: zoom-in;
+            position: relative;
+        }
+
+        .screenshot-wrap::after {
+            content: '🔍';
+            position: absolute;
+            top: 10px;
+            right: 12px;
+            font-size: 1.1rem;
+            opacity: 0;
+            transition: opacity 0.25s ease;
+            pointer-events: none;
+            filter: drop-shadow(0 0 4px rgba(233,69,96,0.8));
+        }
+
+        .screenshot-wrap:hover::after { opacity: 1; }
+
+        .screenshot-wrap img {
+            width: 100%;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .screenshot-wrap:hover img { transform: scale(1.02); }
+
+        .screenshots-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 18px 0;
+        }
+
+        @media (max-width: 700px) {
+            .screenshots-row { grid-template-columns: 1fr; }
+        }
+
+        /* === LIGHTBOX === */
+        .lightbox-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.92);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(6px);
+            animation: fadeIn 0.25s ease;
+            cursor: zoom-out;
+        }
+
+        .lightbox-overlay.active { display: flex; }
+
+        .lightbox-img-wrap {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+            border: 1px solid var(--couleur-secondaire);
+            border-radius: 10px;
+            box-shadow: 0 0 60px var(--glow-color);
+            overflow: hidden;
+            animation: scaleIn 0.25s ease;
+            cursor: default;
+        }
+
+        .lightbox-img-wrap img {
+            display: block;
+            max-width: 90vw;
+            max-height: 90vh;
+            object-fit: contain;
+        }
+
+        .lightbox-close {
+            position: fixed;
+            top: 20px;
+            right: 28px;
+            font-size: 2.5rem;
+            color: var(--couleur-texte);
+            cursor: pointer;
+            line-height: 1;
+            transition: all 0.3s ease;
+            z-index: 2001;
+        }
+
+        .lightbox-close:hover {
+            color: var(--couleur-secondaire);
+            text-shadow: 0 0 20px var(--glow-color);
+            transform: rotate(90deg);
+        }
+
+        /* === INCIDENTS === */
+        .incident-tag {
+            display: inline-block;
+            background: rgba(233, 69, 96, 0.15);
+            border: 1px solid rgba(233, 69, 96, 0.4);
+            color: var(--couleur-secondaire);
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            padding: 3px 10px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+
+        .resolved-tag {
+            display: inline-block;
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            color: var(--cyber-green);
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            padding: 3px 10px;
+            border-radius: 4px;
+            margin-left: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="cyber-grid"></div>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox-overlay" id="lightbox">
+        <span class="lightbox-close" id="lightbox-close">&times;</span>
+        <div class="lightbox-img-wrap">
+            <img id="lightbox-img" src="" alt="">
+        </div>
+    </div>
+
+    <main>
+        <header id="header">
+            <nav>
+                <div class="logo"><a href="index.html">Kylian Thevenet</a></div>
+                <div class="menu-toggle" id="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul id="nav-menu">
+                    <li><a href="index.html#a-propos">À propos</a></li>
+                    <li><a href="index.html#cv">CV</a></li>
+                    <li><a href="index.html#competences">Compétences</a></li>
+                    <li><a href="index.html#projets">Mes Projets</a></li>
+                    <li><a href="index.html#veille">Veille Technologique</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="container">
+            <div class="projet-detail reveal">
+                <div class="projet-header">
+                    <h2 class="glitch-hover" style="margin-bottom: 0;">Déploiement de Wazuh — SIEM/XDR</h2>
+                    <span class="projet-badge">Projet Réalisé</span>
+                </div>
+
+                <div class="projet-meta">
+                    <div class="meta-item">
+                        <span class="meta-label">Période</span>
+                        <span class="meta-value">2025 / 2026</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Contexte</span>
+                        <span class="meta-value">BTS SIO — CFA Angers</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Technologie principale</span>
+                        <span class="meta-value">Wazuh 4.14.3</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Type</span>
+                        <span class="meta-value">Individuel</span>
+                    </div>
+                </div>
+
+                <h3>Contexte du projet</h3>
+                <p>
+                    Ce projet a été réalisé dans le cadre de ma formation BTS SIO option SISR. L'environnement de travail est un laboratoire informatique composé d'un cluster <strong>Proxmox VE 9.1.5</strong> avec trois serveurs physiques Dell PowerEdge R320, un pare-feu pfSense, un switch Mikrotik et un NAS partagé (réseau LAN 10.10.10.0/24).
+                </p>
+                <p>
+                    Plusieurs services étaient déjà opérationnels (Zabbix, Grafana, GLPI, UptimeKuma), mais aucun outil de sécurité centralisé ne permettait de surveiller les menaces et les journaux système de l'ensemble du parc. Mon objectif était d'y remédier en déployant <strong>Wazuh</strong>, une plateforme open source SIEM/XDR, dans un conteneur LXC sur Proxmox.
+                </p>
+
+                <h3>Technologies utilisées</h3>
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="#e94560" stroke-width="1.5">
+                            <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+                        </svg>
+                        <span>Proxmox VE</span>
+                    </div>
+                    <div class="tech-item">
+                        <svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="#00ff88" stroke-width="1.5">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                        <span>Wazuh SIEM</span>
+                    </div>
+                    <div class="tech-item">
+                        <img src="images/Logos/linux.svg" alt="Linux">
+                        <span>Debian 13</span>
+                    </div>
+                    <div class="tech-item">
+                        <img src="images/Logos/windows-server.svg" alt="Windows Server">
+                        <span>Windows Server</span>
+                    </div>
+                    <div class="tech-item">
+                        <img src="images/Logos/network.svg" alt="Réseau">
+                        <span>LAN 10.10.10.0/24</span>
+                    </div>
+                    <div class="tech-item">
+                        <svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="#00d4ff" stroke-width="1.5">
+                            <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                        </svg>
+                        <span>LXC Container</span>
+                    </div>
+                </div>
+
+                <h3>Objectifs</h3>
+                <ul>
+                    <li>Centraliser les journaux de sécurité de tout le parc informatique</li>
+                    <li>Détecter les menaces, tentatives d'intrusion et comportements anormaux</li>
+                    <li>Surveiller l'intégrité des fichiers système (File Integrity Monitoring)</li>
+                    <li>Évaluer la conformité des configurations des systèmes</li>
+                    <li>Disposer d'un tableau de bord unique pour la supervision de la sécurité</li>
+                </ul>
+
+                <h3>Timeline de réalisation</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-number">ÉTAPE 01</div>
+                        <h4>Installation via Proxmox VE Helper Scripts</h4>
+                        <p>Utilisation du script communautaire disponible sur community-scripts.org pour automatiser la création d'un conteneur LXC sur le nœud <strong>pve03</strong>. L'option "Default Install" est sélectionnée pour une configuration optimale.</p>
+
+                        <div class="screenshots-row">
+                            <div class="screenshot-wrap">
+                                <img src="images/wazuh-proxmox-interface.png" alt="Interface Proxmox avant installation">
+                            </div>
+                            <div class="screenshot-wrap">
+                                <img src="images/wazuh-community-scripts.png" alt="Page community-scripts.org Wazuh">
+                            </div>
+                        </div>
+
+                        <div class="code-block">
+                            <code>bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/wazuh.sh)"</code>
+                        </div>
+
+                        <div class="screenshots-row">
+                            <div class="screenshot-wrap">
+                                <img src="images/wazuh-install-menu.png" alt="Menu d'installation Default Install">
+                            </div>
+                            <div class="screenshot-wrap">
+                                <img src="images/wazuh-storage-pool.png" alt="Sélection du pool de stockage">
+                            </div>
+                        </div>
+
+                        <div class="screenshot-wrap">
+                            <img src="images/wazuh-container-creation.png" alt="Création automatique du conteneur LXC">
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-number">ÉTAPE 02</div>
+                        <h4>Accès au Wazuh Dashboard</h4>
+                        <p>Une fois l'installation terminée, les identifiants sont récupérés via la commande <code>cat ~/wazuh.creds</code> (utilisateur <em>admin</em>, mot de passe généré automatiquement). L'interface web est accessible à l'adresse :</p>
+                        <div class="code-block">
+                            <code>https://10.10.10.107</code>
+                        </div>
+
+                        <div class="screenshots-row">
+                            <div class="screenshot-wrap">
+                                <img src="images/wazuh-creds.png" alt="Récupération des identifiants wazuh.creds">
+                            </div>
+                            <div class="screenshot-wrap">
+                                <img src="images/wazuh-dashboard-login.png" alt="Page de connexion Wazuh Dashboard">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-number">ÉTAPE 03</div>
+                        <h4>Déploiement des agents Linux (Debian)</h4>
+                        <p>Installation sur 4 conteneurs (GLPI, nginx proxy manager, Zabbix, Grafana) via la commande générée par le dashboard (Endpoints › Deploy new agent), avec les variables d'environnement <code>WAZUH_MANAGER</code> et <code>WAZUH_AGENT_NAME</code>.</p>
+
+                        <div class="screenshot-wrap">
+                            <img src="images/wazuh-deploy-agent-ui.png" alt="Interface Deploy new agent Wazuh">
+                        </div>
+
+                        <div class="code-block">
+                            <code>
+sudo systemctl daemon-reload<br>
+sudo systemctl enable wazuh-agent<br>
+sudo systemctl start wazuh-agent<br>
+sudo systemctl status wazuh-agent
+                            </code>
+                        </div>
+
+                        <div class="screenshot-wrap">
+                            <img src="images/wazuh-agent-running.png" alt="Agent Wazuh active running sur Zabbix">
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-number">ÉTAPE 04</div>
+                        <h4>Déploiement de l'agent Windows Server (VM-DC01)</h4>
+                        <p>La VM Windows Server 2022 (10.10.10.20) nécessite une procédure spécifique via PowerShell. Le fichier MSI est téléchargé et installé silencieusement, puis le fichier <code>ossec.conf</code> est vérifié pour confirmer l'adresse du manager (10.10.10.107, port 1514 TCP).</p>
+
+                        <div class="screenshots-row">
+                            <div class="screenshot-wrap">
+                                <img src="images/wazuh-windows-powershell.png" alt="Installation agent via PowerShell">
+                            </div>
+                            <div class="screenshot-wrap">
+                                <img src="images/wazuh-ossec-conf.png" alt="Fichier ossec.conf Windows">
+                            </div>
+                        </div>
+
+                        <div class="code-block">
+                            <code>Restart-Service -Name WazuhSvc</code>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-number">ÉTAPE 05</div>
+                        <h4>Résolution des incidents</h4>
+
+                        <div style="margin-bottom: 15px;">
+                            <span class="incident-tag">INCIDENT #1 — Zabbix</span>
+                            <span class="resolved-tag">✓ RÉSOLU</span>
+                            <p style="margin-top: 8px;">Dépendance manquante <code>lsb-release</code> sur Debian 13. Résolution : <code>sudo apt --fix-broken install</code>, puis configuration manuelle de <code>/var/ossec/etc/ossec.conf</code>.</p>
+                            <div class="screenshot-wrap">
+                                <img src="images/wazuh-incident-lsb.png" alt="Erreur dépendance lsb-release">
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom: 15px;">
+                            <span class="incident-tag">INCIDENT #2 — Windows</span>
+                            <span class="resolved-tag">✓ RÉSOLU</span>
+                            <p style="margin-top: 8px;">Erreur "Le nom de service n'est pas valide" avec <code>NET START Wazuh</code>. Cause : le service MSI s'appelle <code>WazuhSvc</code>. Résolution : <code>Restart-Service -Name WazuhSvc</code>.</p>
+                            <div class="screenshot-wrap">
+                                <img src="images/wazuh-incident-windows-service.png" alt="Erreur nom de service Windows invalide">
+                            </div>
+                        </div>
+
+                        <div>
+                            <span class="incident-tag">INCIDENT #3 — Adresse invalide</span>
+                            <span class="resolved-tag">✓ RÉSOLU</span>
+                            <p style="margin-top: 8px;">L'agent retournait l'erreur <em>Invalid server address found: '0.0.0.0'</em>. Résolution : modification de la balise <code>&lt;address&gt;</code> dans <code>ossec.conf</code> pour y renseigner <code>10.10.10.107</code>.</p>
+                            <div class="screenshot-wrap">
+                                <img src="images/wazuh-incident-address.png" alt="Erreur adresse manager 0.0.0.0">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Résultats obtenus</h3>
+                <div class="results-grid">
+                    <div class="result-card">
+                        <span class="result-number">5</span>
+                        <div class="result-label">Agents actifs</div>
+                    </div>
+                    <div class="result-card">
+                        <span class="result-number">0</span>
+                        <div class="result-label">Alertes critiques</div>
+                    </div>
+                    <div class="result-card">
+                        <span class="result-number">219</span>
+                        <div class="result-label">Alertes moyennes</div>
+                    </div>
+                    <div class="result-card">
+                        <span class="result-number">2 OS</span>
+                        <div class="result-label">Linux & Windows</div>
+                    </div>
+                </div>
+                <p>Les 5 agents connectés : <strong>GLPI</strong> (10.10.10.105), <strong>nginx proxy manager</strong> (10.10.10.102), <strong>Zabbix</strong> (10.10.10.103), <strong>Grafana</strong> (10.10.10.104) — tous Debian GNU/Linux 13 — et <strong>VM-DC01</strong> (10.10.10.20) sous Windows Server 2022.</p>
+
+                <div class="screenshot-wrap">
+                    <img src="images/wazuh-dashboard-overview.png" alt="Wazuh Dashboard Overview">
+                </div>
+                <div class="screenshot-wrap" style="margin-top:15px;">
+                    <img src="images/wazuh-endpoints-list.png" alt="Liste des 5 agents actifs Wazuh">
+                </div>
+
+                <h3>Compétences acquises</h3>
+                <table class="competences-table">
+                    <thead>
+                        <tr>
+                            <th>Compétence</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Virtualisation LXC</strong></td>
+                            <td>Création et gestion de conteneurs LXC sur Proxmox VE</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Architecture SIEM/XDR</strong></td>
+                            <td>Compréhension du modèle manager / agents et des flux de logs</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Administration Linux</strong></td>
+                            <td>Configuration de services système avec <code>systemctl</code> sous Debian</td>
+                        </tr>
+                        <tr>
+                            <td><strong>PowerShell & Windows</strong></td>
+                            <td>Installation et gestion d'agents sur Windows Server 2022</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Gestion de paquets</strong></td>
+                            <td>Résolution de dépendances avec <code>dpkg</code> et <code>apt</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Configuration XML</strong></td>
+                            <td>Analyse et modification du fichier <code>ossec.conf</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="download-section">
+                    <h4>Télécharger le rapport complet</h4>
+                    <p>Consultez le document PDF détaillé de ce projet</p>
+                    <a href="Projet 1 wazuh.pdf" target="_blank" class="download-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7,10 12,15 17,10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        Télécharger le PDF
+                    </a>
+                </div>
+
+                <a href="index.html#projets" class="cta-button" style="margin-top: 30px;">Retour aux projets</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="https://github.com/kylian-tht" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+        <p>&copy; 2025 - Kylian Thevenet. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            /* ── Menu hamburger ── */
+            const menuToggle = document.getElementById('menu-toggle');
+            const navMenu = document.getElementById('nav-menu');
+            if (menuToggle && navMenu) {
+                menuToggle.addEventListener('click', () => {
+                    menuToggle.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                });
+                navMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        menuToggle.classList.remove('active');
+                        navMenu.classList.remove('active');
+                    });
+                });
+            }
+
+            /* ── Scroll reveal ── */
+            const revealElements = document.querySelectorAll('.reveal');
+            function revealOnScroll() {
+                const wh = window.innerHeight;
+                revealElements.forEach(el => {
+                    if (el.getBoundingClientRect().top < wh - 150) el.classList.add('active');
+                });
+            }
+            revealOnScroll();
+            window.addEventListener('scroll', revealOnScroll);
+
+            /* ── Header scroll ── */
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                header.classList.toggle('scrolled', window.pageYOffset > 100);
+            });
+
+            /* ── Lightbox ── */
+            const lightbox     = document.getElementById('lightbox');
+            const lightboxImg  = document.getElementById('lightbox-img');
+            const lightboxClose = document.getElementById('lightbox-close');
+
+            document.querySelectorAll('.screenshot-wrap img').forEach(img => {
+                img.addEventListener('click', () => {
+                    lightboxImg.src = img.src;
+                    lightboxImg.alt = img.alt;
+                    lightbox.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            function closeLightbox() {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+                lightboxImg.src = '';
+            }
+
+            lightboxClose.addEventListener('click', closeLightbox);
+            lightbox.addEventListener('click', e => {
+                if (e.target === lightbox) closeLightbox();
+            });
+            document.addEventListener('keydown', e => {
+                if (e.key === 'Escape') closeLightbox();
+            });
+        });
+    </script>
+</body>
+</html>

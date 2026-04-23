@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autres Projets - Kylian Thevenet</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        .page-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            color: var(--couleur-texte-sombre);
+            line-height: 1.8;
+        }
+
+        .section-titre {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin: 60px 0 30px;
+        }
+
+        .section-titre h2 {
+            font-size: 1.5rem;
+            margin: 0;
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        .section-titre h2::after {
+            display: none;
+        }
+
+        .section-ligne {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, var(--couleur-secondaire), transparent);
+        }
+
+        .section-badge {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--cyber-green);
+            background: rgba(0, 255, 136, 0.08);
+            border: 1px solid rgba(0, 255, 136, 0.25);
+            padding: 4px 12px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        .section-badge.pro {
+            color: var(--cyber-blue);
+            background: rgba(0, 212, 255, 0.08);
+            border-color: rgba(0, 212, 255, 0.25);
+        }
+
+        .projets-liste {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .projet-item {
+            background: rgba(57, 62, 70, 0.35);
+            border: 1px solid rgba(233, 69, 96, 0.1);
+            border-left: 3px solid var(--couleur-secondaire);
+            border-radius: 8px;
+            padding: 22px 26px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .projet-item::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, transparent 60%, rgba(233, 69, 96, 0.04) 100%);
+            pointer-events: none;
+        }
+
+        .projet-item:hover {
+            background: rgba(57, 62, 70, 0.55);
+            border-color: var(--couleur-secondaire);
+            box-shadow: 0 6px 30px rgba(0,0,0,0.25), 0 0 20px var(--glow-color);
+            transform: translateX(4px);
+        }
+
+        .projet-item-header {
+            display: flex;
+            align-items: baseline;
+            gap: 14px;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+
+        .projet-item-titre {
+            font-size: 1.02rem;
+            font-weight: 600;
+            color: var(--couleur-texte);
+            margin: 0;
+            transition: color 0.3s ease;
+        }
+
+        .projet-item:hover .projet-item-titre {
+            color: var(--couleur-secondaire);
+        }
+
+        .projet-item-date {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: var(--cyber-green);
+            background: rgba(0, 255, 136, 0.08);
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            padding: 2px 10px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .projet-item-desc {
+            color: var(--couleur-texte-sombre);
+            font-size: 0.92rem;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        @media (max-width: 700px) {
+            .section-titre { flex-wrap: wrap; }
+            .section-titre h2 { white-space: normal; font-size: 1.2rem; }
+            .projet-item { padding: 16px 14px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="cyber-grid"></div>
+
+    <main>
+        <header id="header">
+            <nav>
+                <div class="logo"><a href="index.html">Kylian Thevenet</a></div>
+                <div class="menu-toggle" id="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul id="nav-menu">
+                    <li><a href="index.html#a-propos">À propos</a></li>
+                    <li><a href="index.html#cv">CV</a></li>
+                    <li><a href="index.html#competences">Compétences</a></li>
+                    <li><a href="index.html#projets">Mes Projets</a></li>
+                    <li><a href="autres-projets.html">Autres Projets</a></li>
+                    <li><a href="Tableau-synthese.pdf" target="_blank">Tableau de synthèse</a></li>
+                    <li><a href="index.html#veille">Veille Technologique</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="container">
+            <h2 class="glitch-hover">Autres Projets</h2>
+            <p class="page-intro reveal">
+                Retrouvez ici l'ensemble des réalisations issues du tableau de synthèse BTS SIO — SESSION 2025, organisées par contexte : travaux réalisés en cours de formation, puis en milieu professionnel sur les deux années d'alternance.
+            </p>
+
+            <!-- ══════════════════════════════════════════
+                 SECTION 1 — EN COURS DE FORMATION
+            ══════════════════════════════════════════ -->
+            <div class="section-titre reveal">
+                <h2>Réalisation en cours de formation</h2>
+                <div class="section-ligne"></div>
+                <span class="section-badge">Formation</span>
+            </div>
+
+            <div class="projets-liste">
+
+                <div class="projet-item reveal reveal-delay-1">
+                    <div class="projet-item-header">
+                        <h3 class="projet-item-titre">Le TP maquette Figma vers Site Web</h3>
+                    </div>
+                    <p class="projet-item-desc">
+                        Conception d'une maquette graphique sur Figma puis intégration complète en HTML/CSS. Travail sur la fidélité visuelle entre le design original et le rendu navigateur : respect des espacements, typographies, couleurs et comportements responsive pour aboutir à une page web fonctionnelle.
+                    </p>
+                </div>
+
+                <div class="projet-item reveal reveal-delay-2">
+                    <div class="projet-item-header">
+                        <h3 class="projet-item-titre">Le TP "OWASP Juice Shop" (Cybersécurité)</h3>
+                    </div>
+                    <p class="projet-item-desc">
+                        Travaux pratiques de cybersécurité offensive sur l'application volontairement vulnérable OWASP Juice Shop. Identification et exploitation de failles web courantes (injections SQL, XSS, contournement d'authentification) dans un environnement de formation sécurisé, afin de mieux comprendre les mécanismes de protection.
+                    </p>
+                </div>
+
+                <div class="projet-item reveal reveal-delay-3">
+                    <div class="projet-item-header">
+                        <h3 class="projet-item-titre">Mise en place d'un laboratoire de virtualisation pour la formation (Linux & Sécurité)</h3>
+                    </div>
+                    <p class="projet-item-desc">
+                        Création d'un environnement de laboratoire virtualisé dédié à la formation sur Linux et à la cybersécurité. Déploiement de machines virtuelles avec différentes distributions Linux, configuration des réseaux internes et mise en place de scénarios pratiques pour l'apprentissage des concepts de sécurité système.
+                    </p>
+                </div>
+
+                <div class="projet-item reveal reveal-delay-4">
+                    <div class="projet-item-header">
+                        <h3 class="projet-item-titre">Mise en œuvre d'un service de stockage (NAS) et de streaming (Jellyfin)</h3>
+                    </div>
+                    <p class="projet-item-desc">
+                        Déploiement d'un serveur NAS Synology pour centraliser le stockage des données. Installation et configuration de Jellyfin via Docker pour proposer un service de streaming multimédia auto-hébergé, avec gestion des droits d'accès et stratégie de sauvegarde intégrée.
+                    </p>
+                </div>
+
+                <div class="projet-item reveal reveal-delay-4">
+                    <div class="projet-item-header">
+                        <h3 class="projet-item-titre">Règles de filtrage pare-feu</h3>
+                    </div>
+                    <p class="projet-item-desc">
+                        Définition et mise en place de règles de filtrage sur un pare-feu pour sécuriser le périmètre réseau. Analyse du trafic entrant et sortant, création de politiques d'accès par service et par utilisateur, et tests de validation pour s'assurer que seuls les flux autorisés transitent.
+                    </p>
+                </div>
+
+                <div class="projet-item reveal reveal-delay-4">
+                    <div class="projet-item-header">
+                        <h3 class="projet-item-titre">Configuration d'un routeur Wi-Fi</h3>
+                    </div>
+                    <p class="projet-item-desc">
+                        Installation et paramétrage d'un routeur Wi-Fi : configuration du SSID, du chiffrement (WPA2/WPA3), de la plage DHCP et des règles de priorité de bande passante. Vérification de la couverture et optimisation du signal pour l'ensemble des zones de travail.
+                    </p>
+                </div>
+
+                <div class="projet-item reveal reveal-delay-4">
+                    <div class="projet-item-header">
+                        <h3 class="projet-item-titre">Le TP Nginx Proxy Manager</h3>
+                    </div>
+                    <p class="projet-item-desc">
+                        Déploiement et configuration de Nginx Proxy Manager comme point d'entrée unique pour les services auto-hébergés. Mise en place de redirections de sous-domaines, génération automatique de certificats SSL via Let's Encrypt et sécurisation des accès aux applications internes.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- ══════════════════════════════════════════
+                 SECTION 2 — MILIEU PRO — 1RE ANNÉE
+            ══════════════════════════════════════════ -->
+            <div class="section-titre reveal">
+                <h2>Réalisations en milieu professionnel — 1<sup>re</sup> année</h2>
+                <div class="section-ligne"></div>
+                <span class="section-badge pro">Alternance · An 1</span>
+            </div>
+
+            <div class="projets-liste">
+
+                <div class="projet-item reveal reveal-delay-1">
+                    <div class="projet-item-header">
+                        <h3 class="projet-item-titre">Déploiement de postes et sécurisation du parc (Antivirus, Sauvegardes)</h3>
+                        <span class="projet-item-date">05/09/2024 → 15/10/2024</span>
+                    </div>
+                    <p class="projet-item-desc">
+                        Déploiement et configuration de postes de travail informatiques au sein du parc chez JLB Formatic. Mise en place de solutions antivirus et de stratégies de sauvegarde pour sécuriser les données et garantir la continuité de service en cas de panne ou d'incident.
+                    </p>
+                </div>
+
+                <div class="projet-item reveal reveal-delay-2">
+                    <div class="projet-item-header">
+                        <h3 class="projet-item-titre">Configuration et maintenance de l'infrastructure réseau locale et Wi-Fi</h3>
+                        <span class="projet-item-date">29/10/2024 → 02/12/2024</span>
+                    </div>
+                    <p class="projet-item-desc">
+                        Configuration et maintenance de l'infrastructure réseau locale de l'entreprise, incluant le paramétrage des équipements actifs et la gestion du réseau sans fil. Vérification de la connectivité, résolution des incidents réseau et documentation de l'architecture en place.
+                    </p>
+                </div>
+
+                <div class="projet-item reveal reveal-delay-3">
+                    <div class="projet-item-header">
+                        <h3 class="projet-item-titre">Maintenance corrective et évolution matérielle des postes de travail informatiques</h3>
+                        <span class="projet-item-date">09/01/2025 → 26/03/2025</span>
+                    </div>
+                    <p class="projet-item-desc">
+                        Intervention de maintenance corrective sur des postes de travail défaillants : diagnostic des pannes matérielles et logicielles, remplacement de composants (disques, RAM, alimentations) et mise à jour des systèmes. Évolution du parc existant pour améliorer les performances globales.
+                    </p>
+                </div>
+
+                <div class="projet-item reveal reveal-delay-4">
+                    <div class="projet-item-header">
+                        <h3 class="projet-item-titre">Remise en condition opérationnelle et configuration de téléphones mobiles</h3>
+                        <span class="projet-item-date">25/05/2025 → 13/04/2026</span>
+                    </div>
+                    <p class="projet-item-desc">
+                        Remise en état de téléphones mobiles : réinitialisation, mise à jour du système, configuration des comptes et des profils réseau (Wi-Fi, APN, messagerie). Vérification du bon fonctionnement avant restitution aux utilisateurs ou clients.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- ══════════════════════════════════════════
+                 SECTION 3 — MILIEU PRO — 2E ANNÉE
+            ══════════════════════════════════════════ -->
+            <div class="section-titre reveal">
+                <h2>Réalisations en milieu professionnel — 2<sup>e</sup> année</h2>
+                <div class="section-ligne"></div>
+                <span class="section-badge pro">Alternance · An 2</span>
+            </div>
+
+            <div class="projets-liste">
+
+                <div class="projet-item reveal reveal-delay-1">
+                    <div class="projet-item-header">
+                        <h3 class="projet-item-titre">Mise en place de caméras de surveillance (TP-Link)</h3>
+                        <span class="projet-item-date">08/01/2026 → 12/02/2026</span>
+                    </div>
+                    <p class="projet-item-desc">
+                        Installation et configuration d'un système de vidéosurveillance TP-Link en milieu professionnel. Mise en réseau des caméras, paramétrage de l'enregistrement, gestion des accès à distance et vérification de la conformité de l'installation avec les exigences de sécurité physique du site.
+                    </p>
+                </div>
+
+                <div class="projet-item reveal reveal-delay-2">
+                    <div class="projet-item-header">
+                        <h3 class="projet-item-titre">Déploiement de publicités sur les réseaux sociaux (Facebook / SMS)</h3>
+                        <span class="projet-item-date">04/03/2026 → 27/03/2026</span>
+                    </div>
+                    <p class="projet-item-desc">
+                        Création et déploiement de campagnes publicitaires pour l'entreprise sur Facebook et par SMS. Paramétrage des audiences cibles, rédaction des visuels et des messages promotionnels, suivi des performances des campagnes et analyse des retours pour optimiser la stratégie de communication.
+                    </p>
+                </div>
+
+            </div>
+
+            <div style="margin-top: 60px; text-align: center;">
+                <a href="index.html#projets" class="cta-button">Retour aux projets principaux</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="https://github.com/kylian-tht" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+        <p>&copy; 2025 - Kylian Thevenet. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            /* ── Menu hamburger ── */
+            const menuToggle = document.getElementById('menu-toggle');
+            const navMenu    = document.getElementById('nav-menu');
+            if (menuToggle && navMenu) {
+                menuToggle.addEventListener('click', () => {
+                    menuToggle.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                });
+                navMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        menuToggle.classList.remove('active');
+                        navMenu.classList.remove('active');
+                    });
+                });
+            }
+
+            /* ── Scroll reveal ── */
+            const revealEls = document.querySelectorAll('.reveal');
+            function revealOnScroll() {
+                const wh = window.innerHeight;
+                revealEls.forEach(el => {
+                    if (el.getBoundingClientRect().top < wh - 100) el.classList.add('active');
+                });
+            }
+            revealOnScroll();
+            window.addEventListener('scroll', revealOnScroll);
+
+            /* ── Header scroll ── */
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                header.classList.toggle('scrolled', window.pageYOffset > 100);
+            });
+        });
+    </script>
+</body>
+</html>
