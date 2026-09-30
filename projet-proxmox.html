@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Déploiement Proxmox VE - Kylian Thevenet</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=2.2">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         /* Styles spécifiques aux pages projet */
         .projet-header {
@@ -328,33 +328,41 @@
     </style>
 </head>
 <body>
-    <div class="cyber-grid"></div>
+    <div class="bg-subtle-grid"></div>
 
-    <main>
-        <header id="header">
-            <nav>
-                <div class="logo"><a href="index.html">Kylian Thevenet</a></div>
-                <div class="menu-toggle" id="menu-toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-                <ul id="nav-menu">
-                    <li><a href="index.html#a-propos">À propos</a></li>
-                    <li><a href="index.html#cv">CV</a></li>
-                    <li><a href="index.html#competences">Compétences</a></li>
-                    <li><a href="index.html#projets">Mes Projets</a></li>
-                    <li><a href="index.html#veille">Veille Technologique</a></li>
-                    <li><a href="index.html#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </header>
+    <header id="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="logo-icon">KT</span>
+                    <span class="logo-text">Kylian Thevenet</span>
+                </a>
+            </div>
 
-        <section class="container">
-            <div class="projet-detail reveal">
+            <button class="menu-toggle" id="menu-toggle" aria-label="Ouvrir le menu de navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul id="nav-menu">
+                <li><a href="index.html#a-propos" class="nav-link">À propos</a></li>
+                <li><a href="index.html#competences" class="nav-link">Compétences</a></li>
+                <li><a href="index.html#projets" class="nav-link active">Projets</a></li>
+                <li><a href="autres-projets.html" class="nav-link">Autres Projets</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                <li><a href="index.html" class="btn btn-secondary" style="padding: 6px 14px; font-size: 0.85rem;">Accueil</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main style="opacity: 1 !important; visibility: visible !important;">
+
+        <section class="container" style="opacity: 1 !important; visibility: visible !important;">
+            <div class="projet-detail" style="opacity: 1 !important; visibility: visible !important; display: block !important;">
                 <div class="projet-header">
                     <h2 class="glitch-hover" style="margin-bottom: 0;">Infrastructure de Virtualisation sous Proxmox VE</h2>
-                    <span class="projet-badge entreprise">Projet Entreprise (Épreuve E6)</span>
+                    <span class="projet-badge entreprise">Projet Entreprise & Production</span>
                 </div>
 
                 <div class="projet-meta">
@@ -364,7 +372,7 @@
                     </div>
                     <div class="meta-item">
                         <span class="meta-label">Contexte</span>
-                        <span class="meta-value">Épreuve E6 (BTS SIO SISR)</span>
+                        <span class="meta-value">Infrastructure Professionnelle</span>
                     </div>
                     <div class="meta-item">
                         <span class="meta-label">Technologie clé</span>
@@ -531,15 +539,15 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/Proxmo
                 </table>
 
                 <div class="download-section">
-                    <h4>Consulter le Dossier Professionnel</h4>
-                    <p>Téléchargez le document PDF complet de l'épreuve E6 (avec captures d'écran et détails techniques)</p>
+                    <h4>Consulter le Dossier Technique</h4>
+                    <p>Téléchargez le document PDF complet du projet (avec captures d'écran, schémas et détails techniques)</p>
                     <a href="Projet 2.pdf" target="_blank" class="download-btn">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                             <polyline points="7,10 12,15 17,10"/>
                             <line x1="12" y1="15" x2="12" y2="3"/>
                         </svg>
-                        Télécharger le PDF E6
+                        Télécharger le dossier technique
                     </a>
                 </div>
 
@@ -555,51 +563,6 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/Proxmo
         <p>&copy; 2026 - Kylian Thevenet. Tous droits réservés.</p>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Menu Hamburger
-            const menuToggle = document.getElementById('menu-toggle');
-            const navMenu = document.getElementById('nav-menu');
-
-            if (menuToggle && navMenu) {
-                menuToggle.addEventListener('click', function() {
-                    menuToggle.classList.toggle('active');
-                    navMenu.classList.toggle('active');
-                });
-
-                const navLinks = navMenu.querySelectorAll('a');
-                navLinks.forEach(link => {
-                    link.addEventListener('click', function() {
-                        menuToggle.classList.remove('active');
-                        navMenu.classList.remove('active');
-                    });
-                });
-            }
-
-            // Animation au scroll
-            const revealElements = document.querySelectorAll('.reveal');
-            function revealOnScroll() {
-                const windowHeight = window.innerHeight;
-                revealElements.forEach(element => {
-                    const elementTop = element.getBoundingClientRect().top;
-                    if (elementTop < windowHeight - 150) {
-                        element.classList.add('active');
-                    }
-                });
-            }
-            revealOnScroll();
-            window.addEventListener('scroll', revealOnScroll);
-
-            // Changement d'état du header au scroll
-            const header = document.getElementById('header');
-            window.addEventListener('scroll', function() {
-                if (window.pageYOffset > 100) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            });
-        });
-    </script>
+    <script src="main.js"></script>
 </body>
 </html>

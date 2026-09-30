@@ -3,208 +3,631 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio de Kylian Thevenet | BTS SIO - Cybersécurité</title>
-    <meta name="description" content="Portfolio de Kylian Thevenet, étudiant en BTS SIO option Cybersécurité. Découvrez mes projets, compétences et parcours professionnel.">
-    <link rel="stylesheet" href="style.css">
+    <title>Kylian Thevenet | Technicien Informatique & Support Spécialisé</title>
+    <meta name="description" content="Portfolio professionnel de Kylian Thevenet, Technicien Informatique & Support Spécialisé. Diagnostic matériel, administration systèmes, virtualisation et réseaux.">
+    
+    <!-- Typographies Modernes Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Feuille de styles principale -->
+    <link rel="stylesheet" href="style.css?v=2.3">
+
+    <!-- Librairie 3D Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
-    <!-- Grille de fond animée -->
-    <div class="cyber-grid"></div>
+    <!-- Fond subtil texturé -->
+    <div class="bg-subtle-grid"></div>
+
+    <!-- Header & Navigation Fixe -->
+    <header id="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <a href="#hero">
+                    <span class="logo-icon">KT</span>
+                    <span class="logo-text">Kylian Thevenet</span>
+                </a>
+            </div>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Ouvrir le menu de navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul id="nav-menu">
+                <li><a href="#a-propos" class="nav-link">À propos</a></li>
+                <li><a href="#competences" class="nav-link">Compétences</a></li>
+                <li><a href="#projets" class="nav-link">Projets</a></li>
+                <li><a href="autres-projets.html" class="nav-link">Autres Projets</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#" id="open-cv-modal" class="btn btn-secondary" style="padding: 6px 14px; font-size: 0.85rem;">Mon CV</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <main>
-        <header id="header">
-            <nav>
-                <div class="logo"><a href="#">Kylian Thevenet</a></div>
-                <div class="menu-toggle" id="menu-toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-                <ul id="nav-menu">
-                    <li><a href="#a-propos">À propos</a></li>
-                    <li><a href="#cv">CV</a></li>
-                    <li><a href="#competences">Compétences</a></li>
-                    <li><a href="#projets">Mes Projets</a></li>
-                    <li><a href="autres-projets.html">Autres Projets</a></li>
-                    <li><a href="Tableau-synthese.pdf" target="_blank">Tableau de synthèse</a></li>
-                    <li><a href="#veille">Veille Technologique</a></li>
-                    <li><a href="#contact">Me contacter</a></li>
-                </ul>
-            </nav>
-        </header>
-
-        <!-- Section d'introduction -->
+        <!-- Section Hero avec Objet 3D Interactif -->
         <section id="hero" class="container">
-            <div class="hero-content">
-                <span class="cyber-badge">Cybersécurité & Réseaux</span>
-                <h1>
-                    <span id="typing-text"></span>
-                    <span class="typing-cursor"></span>
-                </h1>
-                <p class="hero-subtitle">A votre service !</p>
-                <p>Réparateur d'ordinateur et technicien informatique en alternance.</p>
-                <a href="#projets" class="cta-button">Découvrir mes projets</a>
+            <div class="hero-grid">
+                <!-- Colonne Gauche : Présentation & Actions -->
+                <div class="hero-left reveal">
+                    <div class="status-pill">
+                        <span class="status-dot"></span>
+                        <span>Disponible · Technicien Informatique & Support Spécialisé</span>
+                    </div>
+
+                    <h1 class="hero-title">
+                        Expertise matérielle & <br>
+                        <span class="highlight">systèmes informatiques</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        Spécialiste de la maintenance préventive et curative, de l'administration système et de la virtualisation. Une approche méthodique pour garantir la fiabilité de vos équipements et la sérénité des utilisateurs.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a href="#projets" class="btn btn-primary">
+                            <span>Consulter mes projets</span>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </a>
+                        <button class="btn-copy-email" data-email="kylian.thevenet@gmail.com" title="Cliquer pour copier mon adresse e-mail">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                            <span>Copier l'e-mail</span>
+                        </button>
+                    </div>
+
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">2+ ans</span>
+                            <span class="stat-label">Immersion terrain (JLB Formatic)</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100+</span>
+                            <span class="stat-label">Interventions & réparations matérielles</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Rigueur & écoute client</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Colonne Droite : Scène 3D Hardware Three.js -->
+                <div class="hero-3d-wrapper reveal reveal-delay-1">
+                    <div id="canvas-3d-container"></div>
+                </div>
             </div>
-            <div class="scroll-indicator">
-                <span>Scroll</span>
-                <div class="mouse"></div>
+        </section>
+
+        <!-- Section À Propos -->
+        <section id="a-propos">
+            <div class="container">
+                <div class="a-propos-grid">
+                    <div class="a-propos-card-photo reveal">
+                        <div class="a-propos-photo">
+                            <img src="images/photo-profil.jpg" alt="Kylian Thevenet - Technicien Informatique">
+                        </div>
+                        <div class="photo-badge-experience">
+                            <div class="badge-number">Terrain</div>
+                            <div class="badge-text">Pratique & Dépannage Multimarques</div>
+                        </div>
+                    </div>
+
+                    <div class="a-propos-text reveal reveal-delay-1">
+                        <h2 style="font-size: 2rem; margin-bottom: 20px;">Passionné de hardware, rigoureux dans la résolution de problèmes</h2>
+                        <p>
+                            Fort de deux années d'expérience pratique au sein de l'entreprise <strong>JLB Formatic</strong>, j'interviens sur la maintenance intégrale des parcs informatiques : du diagnostic micro-composants à la remise en service de postes professionnels, en passant par l'installation de serveurs et d'infrastructures virtualisées.
+                        </p>
+                        <p>
+                            Ma philosophie repose sur la réactivité, le soin du détail et la clarté technique. Mon ambition est de proposer des prestations de support informatique et de réparation multimarques de haut niveau, alliant fiabilité technique et relation de confiance avec les utilisateurs.
+                        </p>
+
+                        <div class="piliers-grid">
+                            <div class="pilier-item">
+                                <span class="pilier-icon">🛠️</span>
+                                <div class="pilier-info">
+                                    <h4>Hardware de Pointe</h4>
+                                    <p>Diagnostic panne, micro-soudures, changement de dalles et composants.</p>
+                                </div>
+                            </div>
+                            <div class="pilier-item">
+                                <span class="pilier-icon">🖥️</span>
+                                <div class="pilier-info">
+                                    <h4>Systèmes & Serveurs</h4>
+                                    <p>Windows Server, distributions Linux, configurations et sauvegardes.</p>
+                                </div>
+                            </div>
+                            <div class="pilier-item">
+                                <span class="pilier-icon">☁️</span>
+                                <div class="pilier-info">
+                                    <h4>Virtualisation & Stockage</h4>
+                                    <p>Proxmox VE, conteneurs LXC/Docker, gestion NAS Synology.</p>
+                                </div>
+                            </div>
+                            <div class="pilier-item">
+                                <span class="pilier-icon">🤝</span>
+                                <div class="pilier-info">
+                                    <h4>Relation Utilisateur</h4>
+                                    <p>Pédagogie, conseil personnalisé et accompagnement méthodique.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- Section À propos -->
-        <section id="a-propos" class="container">
-             <h2 class="glitch-hover">À propos de moi</h2>
-             <div class="a-propos-content reveal">
-                 <div class="a-propos-photo">
-                     <img src="images/photo-profil.jpg" alt="Photo de Kylian Thevenet">
-                 </div>
-                 <div class="a-propos-texte">
-                     <h3>Qui suis-je ?</h3>
-                     <p>
-                         À 19 ans et actuellement en formation <strong>BTS SIO</strong>, je suis en alternance chez <strong>JLB Formatic</strong> en tant que réparateur d'ordinateur et technicien informatique.
-                         Je me définis comme quelqu'un de curieux, rigoureux et toujours prêt à apprendre de nouvelles technologies pour monter en compétences.
-                     </p>
-
-                     <h3>Expériences Professionnelles</h3>
-                     <p>
-                         Mon expérience principale se déroule chez <strong>JLB Formatic</strong>, où mes missions s'articulent principalement autour de la maintenance matérielle (hardware) et logicielle. J'interviens sur la réparation d'ordinateurs et de téléphones, ainsi que sur la gestion des systèmes d'exploitation, qu'il s'agisse des mises à jour et réparations sur Windows ou d'interventions sur Linux.
-                     </p>
-
-                     <h3>Objectifs et centres d'intérêt</h3>
-                     <p>
-                         Mon projet professionnel est de me spécialiser en tant que <strong>réparateur informatique multimarques</strong>, avec l'ambition de proposer mes services directement à domicile. En dehors de la technologie, je suis un grand amateur de parcs d'attractions et de toutes les activités qui sortent de l'ordinaire et procurent des sensations fortes.
-                     </p>
-                 </div>
-             </div>
-        </section>
-
-        <!-- Section CV -->
-        <section id="cv" class="container">
-            <h2 class="glitch-hover">CV</h2>
-            <p class="reveal">
-                Consultez mon parcours professionnel et mes compétences en détail.
-                Cliquez sur le bouton ci-dessous pour ouvrir mon CV.
-            </p>
-            <a href="#" id="open-cv-modal" class="cta-button reveal reveal-delay-1">Ouvrir mon CV</a>
-        </section>
-
-        <!-- Section Compétences -->
+        <!-- Section Compétences Techniques (Cartes 3D Tilt) -->
         <section id="competences" class="container">
-            <h2 class="glitch-hover">Mes Compétences Techniques</h2>
-            <div class="competences-grid">
-                <div class="competence-carte reveal reveal-delay-1">
-                    <img src="images/Logos/windows-server.svg" alt="Logo Windows Server">
-                    <h4>Windows Server</h4>
+            <h2 class="section-title">Domaines de Compétences</h2>
+            <p class="section-subtitle">
+                Un savoir-faire complet pour intervenir à tous les niveaux de l'écosystème informatique d'une entreprise ou d'un particulier.
+            </p>
+
+            <div class="competences-categories">
+                <!-- Pôle 1 : Maintenance & Diagnostic Hardware -->
+                <div class="tilt-card reveal">
+                    <div class="category-header">
+                        <div class="category-icon">⚙️</div>
+                        <h3>Maintenance & Hardware</h3>
+                    </div>
+                    <p style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 16px;">
+                        Diagnostic approfondi de pannes matérielles, assemblage personnalisé, remplacement d'écrans, batteries, cartes mères et optimisation thermique.
+                    </p>
+                    <div class="skill-tag-group">
+                        <span class="skill-tag">Diagnostic panne PC & Mac</span>
+                        <span class="skill-tag">Micro-électronique</span>
+                        <span class="skill-tag">Réparation Smartphone</span>
+                        <span class="skill-tag">Remplacement BGA/Composants</span>
+                    </div>
                 </div>
-                <div class="competence-carte reveal reveal-delay-2">
-                    <img src="images/Logos/linux.svg" alt="Logo Linux">
-                    <h4>Linux</h4>
+
+                <!-- Pôle 2 : Systèmes d'Exploitation & Serveurs -->
+                <div class="tilt-card reveal reveal-delay-1">
+                    <div class="category-header">
+                        <div class="category-icon">🖥️</div>
+                        <h3>Systèmes & Administration</h3>
+                    </div>
+                    <p style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 16px;">
+                        Déploiement et gestion d'environnements bureautiques et serveurs. Gestion d'accès, permissions, intégrité et maintenance applicative.
+                    </p>
+                    <div class="skill-tag-group">
+                        <span class="skill-tag"><img src="images/Logos/windows-server.svg" alt="Windows"> Windows Server 2022</span>
+                        <span class="skill-tag"><img src="images/Logos/linux.svg" alt="Linux"> Linux Debian & Ubuntu</span>
+                        <span class="skill-tag">Active Directory</span>
+                        <span class="skill-tag">Scripts PowerShell & Bash</span>
+                    </div>
                 </div>
-                <div class="competence-carte reveal reveal-delay-3">
-                    <img src="images/Logos/Synology.svg" alt="Logo Synology">
-                    <h4>Synology DSM</h4>
+
+                <!-- Pôle 3 : Virtualisation & Stockage -->
+                <div class="tilt-card reveal reveal-delay-2">
+                    <div class="category-header">
+                        <div class="category-icon">☁️</div>
+                        <h3>Virtualisation & Stockage</h3>
+                    </div>
+                    <p style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 16px;">
+                        Mise en place de solutions de centralisation et de continuité d'activité. Gestion des plans de reprise (PRA) et stratégies de sauvegarde.
+                    </p>
+                    <div class="skill-tag-group">
+                        <span class="skill-tag">Proxmox VE</span>
+                        <span class="skill-tag"><img src="images/Logos/docker.svg" alt="Docker"> Docker & Conteneurs LXC</span>
+                        <span class="skill-tag"><img src="images/Logos/Synology.svg" alt="Synology"> Synology DSM</span>
+                        <span class="skill-tag">Stratégie Backup 3-2-1</span>
+                    </div>
                 </div>
-                <div class="competence-carte reveal reveal-delay-4">
-                    <img src="images/Logos/docker.svg" alt="Logo Docker">
-                    <h4>Docker</h4>
-                </div>
-                <div class="competence-carte reveal reveal-delay-1">
-                    <img src="images/Logos/hardware.svg" alt="Icône matériel">
-                    <h4>Réparation Matériel</h4>
-                </div>
-                <div class="competence-carte reveal reveal-delay-2">
-                    <img src="images/Logos/network.svg" alt="Icône réseau">
-                    <h4>Réseautage</h4>
+
+                <!-- Pôle 4 : Réseaux & Sécurité Opérationnelle -->
+                <div class="tilt-card reveal reveal-delay-3">
+                    <div class="category-header">
+                        <div class="category-icon">🛡️</div>
+                        <h3>Réseau & Supervision</h3>
+                    </div>
+                    <p style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 16px;">
+                        Configuration de switchs, segmentation VLAN, routeurs, règles de pare-feu et monitoring centralisé de la santé du parc.
+                    </p>
+                    <div class="skill-tag-group">
+                        <span class="skill-tag"><img src="images/Logos/network.svg" alt="Réseau"> TCP/IP & VLAN</span>
+                        <span class="skill-tag">Wazuh SIEM/XDR</span>
+                        <span class="skill-tag">VPN & Pare-feu</span>
+                        <span class="skill-tag">Supervision logs</span>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Section Projets -->
-        <section id="projets" class="container">
-            <h2 class="glitch-hover">Mes Projets chez JLB Formatic</h2>
-            <div class="projets-grid">
-                <!-- Projet 2 -->
-                <a href="projet-proxmox.html" class="projet-lien">
-                    <div class="projet-carte reveal reveal-delay-2">
-                        <h3>Déploiement d'un Proxmox VE (Projet Entreprise/Maison)</h3>
-                        <p>Projet de déploiement d'une solution Proxmox dans un environnement professionnel et domestique. Cette solution vise à centraliser, sécuriser et optimiser les ressources informatiques avec une haute disponibilité.</p>
-                    </div>
-                </a>
-                <!-- Projet 3 -->
-                <a href="projet-wazuh.html" class="projet-lien">
-                    <div class="projet-carte reveal reveal-delay-3">
-                        <h3>Déploiement de Wazuh — Solution SIEM/XDR</h3>
-                        <p>Installation et configuration de Wazuh, plateforme open source de sécurité SIEM/XDR, dans un conteneur LXC sur Proxmox. Déploiement d'agents sur 5 machines multi-OS (Linux Debian + Windows Server 2022) pour une supervision centralisée de la sécurité du parc informatique.</p>
-                    </div>
-                </a>
-            </div>
-        </section>
+        <!-- Section Projets Majeurs -->
+        <section id="projets">
+            <div class="container">
+                <h2 class="section-title">Réalisations & Projets Majeurs</h2>
+                <p class="section-subtitle">
+                    Études de cas réelles menées en entreprise pour concevoir et déployer des infrastructures pérennes.
+                </p>
 
-        <!-- Section Veille Technologique -->
-        <section id="veille" class="container">
-            <h2 class="glitch-hover">Veille Technologique</h2>
-            <div class="veille-grid">
-                <div class="veille-sujet reveal">
-                    <h3>Actualités Tech & Cybersécurité</h3>
-                    <p><strong>Présentation :</strong> Ma veille se concentre sur l'actualité générale du monde de la tech, du matériel informatique et de la cybersécurité. Je suis les dernières tendances, les nouvelles sorties de produits et les vulnérabilités pour rester constamment à jour.</p>
-                    <p><strong>Lien avec mon projet :</strong> En tant que futur réparateur, cette veille généraliste est cruciale. Elle me permet de comprendre les nouveaux écosystèmes matériels et logiciels, d'anticiper les pannes courantes sur les nouveaux produits et de conseiller mes clients sur les bonnes pratiques de sécurité.</p>
+                <div class="projets-grid">
+                    <!-- Projet 1 : Proxmox VE -->
+                    <div class="projet-card reveal">
+                        <div>
+                            <div class="projet-badge-top">Infrastructure & Virtualisation</div>
+                            <h3>Déploiement d'un Cluster Proxmox VE</h3>
+                            <p>
+                                Conception et mise en œuvre d'une plateforme de virtualisation d'entreprise sous Proxmox VE. Centralisation des services métier, optimisation de l'allocation des ressources hardware et garantie de haute disponibilité.
+                            </p>
+                            <div class="projet-tech-stack">
+                                <span class="skill-tag">Proxmox VE</span>
+                                <span class="skill-tag">ZFS Storage</span>
+                                <span class="skill-tag">Conteneurs LXC</span>
+                                <span class="skill-tag">Haute Disponibilité</span>
+                            </div>
+                        </div>
+                        <div class="projet-footer">
+                            <a href="projet-proxmox.html" class="link-case-study">
+                                <span>Consulter l'étude de cas complète</span>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                        </div>
+                    </div>
 
-                    <h4>Mes sources d'information</h4>
-                    <ul>
-                        <li>Frandroid : Pour l'actualité des nouvelles technologies et des produits grand public.</li>
-                        <li>Micode (YouTube) : Pour la vulgarisation sur la cybersécurité et les sujets tech complexes.</li>
-                        <li>Guillaume (YouTube) : Pour des analyses et des actualités sur le monde de la tech.</li>
-                        <li>Tech2Tech - Mikaël (YouTube) : Pour des tests et des actualités sur le matériel informatique.</li>
-                    </ul>
+                    <!-- Projet 2 : Wazuh SIEM/XDR -->
+                    <div class="projet-card reveal reveal-delay-1">
+                        <div>
+                            <div class="projet-badge-top">Sécurité & Supervision Parc</div>
+                            <h3>Supervision Centralisée Wazuh SIEM/XDR</h3>
+                            <p>
+                                Déploiement et intégration de la solution de supervision de sécurité Wazuh dans un conteneur dédié. Configuration d'agents sur parc hétérogène (Debian & Windows Server) pour l'analyse d'intégrité et la détection d'anomalies en temps réel.
+                            </p>
+                            <div class="projet-tech-stack">
+                                <span class="skill-tag">Wazuh SIEM</span>
+                                <span class="skill-tag">Supervision Multi-OS</span>
+                                <span class="skill-tag">Sécurité Endpoint</span>
+                                <span class="skill-tag">Analyse d'incidents</span>
+                            </div>
+                        </div>
+                        <div class="projet-footer">
+                            <a href="projet-wazuh.html" class="link-case-study">
+                                <span>Consulter l'étude de cas complète</span>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bannière vers Autres Projets -->
+                <div class="autres-projets-banner reveal">
+                    <div>
+                        <h4>Découvrez l'ensemble de mes réalisations techniques</h4>
+                        <p>Travaux de laboratoire, exercices de virtualisation avancée, audits et ateliers pratiques.</p>
+                    </div>
+                    <a href="autres-projets.html" class="btn btn-primary" style="white-space: nowrap;">
+                        <span>Voir les autres projets</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </a>
                 </div>
             </div>
         </section>
 
         <!-- Section Contact -->
         <section id="contact" class="container">
-             <h2 class="glitch-hover">Me contacter</h2>
-             <p class="reveal">
-                 N'hésitez pas à me contacter pour toute question ou opportunité professionnelle en utilisant le formulaire ci-dessous.
-             </p>
-             <form id="contact-form" class="contact-form reveal reveal-delay-1">
-                 <div class="form-group">
-                     <label for="name">Nom & Prénom</label>
-                     <input type="text" id="name" name="name" required placeholder="Votre nom complet">
-                 </div>
-                 <div class="form-group">
-                     <label for="subject">Objet du mail</label>
-                     <input type="text" id="subject" name="subject" required placeholder="Objet de votre message">
-                 </div>
-                 <div class="form-group">
-                     <label for="message">Votre message (contexte)</label>
-                     <textarea id="message" name="message" rows="5" required placeholder="Décrivez votre message..."></textarea>
-                 </div>
-                 <button type="submit" class="cta-button">Envoyer l'e-mail</button>
-             </form>
-        </section>
+            <h2 class="section-title">Prendre Contact</h2>
+            <p class="section-subtitle">
+                Vous avez un projet, un besoin en maintenance informatique ou une opportunité professionnelle ? Échangeons !
+            </p>
 
+            <div class="contact-wrapper">
+                <!-- Coordonnées & Accès direct -->
+                <div class="contact-info-card reveal">
+                    <h3>Discutons de vos besoins</h3>
+                    <p>
+                        Disponible pour échanger sur vos problématiques de maintenance informatique, d'infrastructure ou pour intégrer votre équipe technique.
+                    </p>
+
+                    <div class="contact-channels">
+                        <div class="channel-item">
+                            <div class="channel-icon">✉️</div>
+                            <div class="channel-details">
+                                <span class="channel-label">Adresse E-mail</span>
+                                <a href="mailto:kylian.thevenet@gmail.com" class="channel-value">kylian.thevenet@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="channel-item">
+                            <div class="channel-icon">💼</div>
+                            <div class="channel-details">
+                                <span class="channel-label">Profil LinkedIn</span>
+                                <a href="https://www.linkedin.com/in/kylian-thevenet" target="_blank" rel="noopener noreferrer" class="channel-value">linkedin.com/in/kylian-thevenet</a>
+                            </div>
+                        </div>
+
+                        <div class="channel-item">
+                            <div class="channel-icon">🐙</div>
+                            <div class="channel-details">
+                                <span class="channel-label">GitHub</span>
+                                <a href="https://github.com/kylian-tht" target="_blank" rel="noopener noreferrer" class="channel-value">github.com/kylian-tht</a>
+                            </div>
+                        </div>
+
+                        <div class="channel-item">
+                            <div class="channel-icon">📍</div>
+                            <div class="channel-details">
+                                <span class="channel-label">Mobilité</span>
+                                <span class="channel-value">Disponible en région & à distance</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulaire de contact -->
+                <form id="contact-form" class="contact-form reveal reveal-delay-1" action="mailto:kylian.thevenet@gmail.com" method="post" enctype="text/plain">
+                    <div class="form-group">
+                        <label for="name">Votre Nom & Prénom</label>
+                        <input type="text" id="name" name="name" required placeholder="Ex: Jean Dupont">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Objet de votre demande</label>
+                        <input type="text" id="subject" name="subject" required placeholder="Ex: Opportunité poste / Besoin dépannage">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Votre Message</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="Détaillez votre projet ou votre demande..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        <span>Envoyer le message</span>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                    </button>
+                </form>
+            </div>
+        </section>
     </main>
 
+    <!-- Footer -->
     <footer>
-        <div class="footer-links">
-            <a href="https://github.com/kylian-tht" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="https://docs.google.com/presentation/d/1PA9vhX8ocSo8QNJNOtfCEjm5OwXG2adxk6gYaGsGB7o/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Diapo</a>
+        <div class="footer-content">
+            <div class="footer-copyright">
+                &copy; 2026 Kylian Thevenet — Technicien Informatique & Support Spécialisé. Tous droits réservés.
+            </div>
+            <div class="footer-links">
+                <a href="#hero">Retour en haut</a>
+                <a href="https://github.com/kylian-tht" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
         </div>
-        <p>&copy; 2025 - Kylian Thevenet. Tous droits réservés.</p>
     </footer>
 
-    <!-- Modale pour le CV -->
-    <div id="cv-modal" class="modal-overlay">
-        <div class="modal-content">
-            <span id="close-cv-modal" class="close-button">&times;</span>
-            <iframe src="cv.pdf" title="CV de Kylian Thevenet"></iframe>
+    <!-- Modale CV Numérique Interactif & Responsive -->
+    <div id="cv-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="cv-modal-title">
+        <div class="modal-content cv-interactive-modal">
+            <div class="modal-header cv-interactive-header">
+                <div class="cv-header-title">
+                    <span class="status-dot"></span>
+                    <h3 id="cv-modal-title">Curriculum Vitae · Kylian Thevenet</h3>
+                </div>
+                <div class="cv-header-actions">
+                    <a href="cv.pdf" download="CV_Kylian_Thevenet.pdf" class="btn btn-primary" style="padding: 6px 14px; font-size: 0.82rem; gap: 6px;">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                        <span>Télécharger PDF</span>
+                    </a>
+                    <button id="close-cv-modal" class="close-button" aria-label="Fermer la modale">&times;</button>
+                </div>
+            </div>
+
+            <!-- Corps Déroulant du CV Web -->
+            <div class="cv-scroll-container">
+                <!-- En-tête profil du CV -->
+                <div class="cv-web-hero">
+                    <div class="cv-hero-left">
+                        <div class="cv-avatar-badge">KT</div>
+                        <div class="cv-hero-info">
+                            <h2>Kylian Thevenet</h2>
+                            <div class="cv-hero-role">Technicien Informatique & Support Spécialisé</div>
+                            <div class="cv-hero-meta">
+                                <span>📍 Angers (49) & Région</span>
+                                <span>🚗 Permis B & Véhiculé</span>
+                                <span>🟢 Disponible immédiatement</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cv-hero-chips">
+                        <a href="mailto:kylian.thevenet@gmail.com" class="cv-chip btn-copy-email" data-email="kylian.thevenet@gmail.com" title="Cliquer pour copier">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            <span>kylian.thevenet@gmail.com</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/kylian-thevenet" target="_blank" rel="noopener noreferrer" class="cv-chip">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45c-.9 0-1.63.73-1.63 1.63s.73 1.63 1.63 1.63 1.63-.73 1.63-1.63-.73-1.63-1.63-1.63Z"/></svg>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="https://github.com/kylian-tht" target="_blank" rel="noopener noreferrer" class="cv-chip">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z"/></svg>
+                            <span>GitHub</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Grille Principale 2 Colonnes -->
+                <div class="cv-web-grid">
+                    <!-- Colonne Gauche : Expérience & Réalisations -->
+                    <div class="cv-column">
+                        <!-- Bloc Expérience -->
+                        <div class="cv-card-block">
+                            <div class="cv-block-title">
+                                <span class="cv-block-icon">💼</span>
+                                <h4>Expérience Professionnelle</h4>
+                            </div>
+                            <div class="cv-timeline">
+                                <div class="cv-job-item">
+                                    <div class="cv-job-header">
+                                        <div>
+                                            <div class="cv-job-title">Technicien Informatique & Réparateur Multimarques (Alternance)</div>
+                                            <div class="cv-job-company">JLB Formatic · Angers</div>
+                                        </div>
+                                        <span class="cv-job-date">2024 — 2026 (2 ans)</span>
+                                    </div>
+                                    <p class="cv-job-desc">
+                                        Prise en charge intégrale du pôle atelier de réparation informatique et smartphone, diagnostic matériel/logiciel et relation clientèle.
+                                    </p>
+                                    <ul class="cv-job-bullets">
+                                        <li><strong>Diagnostic & Réparation Hardware :</strong> Dépannage niveau composant sur PC fixes, portables toutes marques (Asus, Dell, HP, Lenovo, Apple) et consoles.</li>
+                                        <li><strong>Micro-électronique :</strong> Microsoudures SMD, remplacement de connecteurs d'alimentation/charge, puces de gestion d'énergie et composants CMS.</li>
+                                        <li><strong>Systèmes & Logiciels :</strong> Réinstallation complète, partitionnement, clonage et migration SSD, désinfection antivirale approfondie.</li>
+                                        <li><strong>Sauvegarde & Données :</strong> Récupération de données sur disques durs et SSD altérés, mise en sécurité de données sensibles.</li>
+                                        <li><strong>Support Clientèle :</strong> Accueil, conseil personnalisé, établissement de devis techniques et suivi après-vente.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bloc Projets & Réalisations Clés -->
+                        <div class="cv-card-block">
+                            <div class="cv-block-title">
+                                <span class="cv-block-icon">🚀</span>
+                                <h4>Projets & Réalisations Techniques</h4>
+                            </div>
+                            <div class="cv-timeline">
+                                <div class="cv-job-item">
+                                    <div class="cv-job-header">
+                                        <div>
+                                            <div class="cv-job-title">Plateforme SIEM/XDR Wazuh sur Proxmox</div>
+                                            <div class="cv-job-company">Infrastructure & Cybersécurité</div>
+                                        </div>
+                                        <span class="cv-job-date">2025 — 2026</span>
+                                    </div>
+                                    <p class="cv-job-desc">
+                                        Déploiement complet d'un serveur Wazuh dans un conteneur LXC, connexion et supervision de 5 agents hétérogènes (Debian 13, Windows Server 2022). Centralisation des alertes de sécurité, conformité système et intégrité de fichiers (FIM).
+                                    </p>
+                                </div>
+                                <div class="cv-job-item">
+                                    <div class="cv-job-header">
+                                        <div>
+                                            <div class="cv-job-title">Cluster de Virtualisation Proxmox VE</div>
+                                            <div class="cv-job-company">Laboratoire Systèmes & Réseaux</div>
+                                        </div>
+                                        <span class="cv-job-date">2024 — 2025</span>
+                                    </div>
+                                    <p class="cv-job-desc">
+                                        Conception et montage d'une infrastructure de virtualisation KVM/LXC complète : pare-feu pfSense, Active Directory Windows Server 2022, reverse proxy Nginx et monitoring Zabbix.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Colonne Droite : Formation & Compétences -->
+                    <div class="cv-column">
+                        <!-- Bloc Formation -->
+                        <div class="cv-card-block">
+                            <div class="cv-block-title">
+                                <span class="cv-block-icon">🎓</span>
+                                <h4>Formation & Diplômes</h4>
+                            </div>
+                            <div class="cv-timeline">
+                                <div class="cv-job-item">
+                                    <div class="cv-job-header">
+                                        <div>
+                                            <div class="cv-job-title">BTS SIO (Option SISR)</div>
+                                            <div class="cv-job-company">CFA Pôle BTS Alternance · Angers</div>
+                                        </div>
+                                        <span class="cv-job-date">2024 — 2026</span>
+                                    </div>
+                                    <p class="cv-job-desc" style="margin-bottom: 0;">
+                                        Solutions d'Infrastructure, Systèmes et Réseaux. Administration serveurs, cybersécurité, virtualisation, routage et support utilisateurs.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bloc Compétences Clés -->
+                        <div class="cv-card-block">
+                            <div class="cv-block-title">
+                                <span class="cv-block-icon">⚡</span>
+                                <h4>Compétences Clés</h4>
+                            </div>
+
+                            <div class="cv-skill-group">
+                                <div class="cv-skill-group-title">Hardware & Dépannage</div>
+                                <div class="cv-skill-tags-wrap">
+                                    <span class="cv-skill-tag highlight">Diagnostic panne PC & Mac</span>
+                                    <span class="cv-skill-tag highlight">Microsoudure SMD / BGA</span>
+                                    <span class="cv-skill-tag">Assemblage PC sur-mesure</span>
+                                    <span class="cv-skill-tag">Remplacement d'écrans & batteries</span>
+                                    <span class="cv-skill-tag">Récupération de données</span>
+                                </div>
+                            </div>
+
+                            <div class="cv-skill-group">
+                                <div class="cv-skill-group-title">Systèmes & Virtualisation</div>
+                                <div class="cv-skill-tags-wrap">
+                                    <span class="cv-skill-tag highlight">Proxmox VE (KVM / LXC)</span>
+                                    <span class="cv-skill-tag highlight">Windows Server 2022</span>
+                                    <span class="cv-skill-tag">Active Directory / GPO</span>
+                                    <span class="cv-skill-tag">Debian / Ubuntu Server</span>
+                                    <span class="cv-skill-tag">Docker</span>
+                                </div>
+                            </div>
+
+                            <div class="cv-skill-group">
+                                <div class="cv-skill-group-title">Réseaux & Sécurité</div>
+                                <div class="cv-skill-tags-wrap">
+                                    <span class="cv-skill-tag highlight">Wazuh SIEM / XDR</span>
+                                    <span class="cv-skill-tag">pfSense & Pare-feu</span>
+                                    <span class="cv-skill-tag">VLAN & Routage</span>
+                                    <span class="cv-skill-tag">VPN WireGuard</span>
+                                    <span class="cv-skill-tag">Supervision Zabbix</span>
+                                </div>
+                            </div>
+
+                            <div class="cv-skill-group">
+                                <div class="cv-skill-group-title">Scripting & Outils</div>
+                                <div class="cv-skill-tags-wrap">
+                                    <span class="cv-skill-tag">PowerShell</span>
+                                    <span class="cv-skill-tag">Bash / Linux CLI</span>
+                                    <span class="cv-skill-tag">GLPI Ticketing</span>
+                                    <span class="cv-skill-tag">Git / GitHub</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bloc Langues & Atouts -->
+                        <div class="cv-card-block">
+                            <div class="cv-block-title">
+                                <span class="cv-block-icon">🌟</span>
+                                <h4>Atouts & Savoir-Être</h4>
+                            </div>
+                            <div class="cv-skill-tags-wrap">
+                                <span class="cv-skill-tag">Sens du service client</span>
+                                <span class="cv-skill-tag">Rigueur méthodique</span>
+                                <span class="cv-skill-tag">Autonomie d'atelier</span>
+                                <span class="cv-skill-tag">Français (Natif)</span>
+                                <span class="cv-skill-tag">Anglais technique</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Callout Téléchargement en bas -->
+                <div class="cv-footer-callout">
+                    <div class="cv-callout-text">
+                        <h5>Besoin du fichier officiel à imprimer ?</h5>
+                        <p>Téléchargez la version PDF originale formalisée de ce curriculum vitae.</p>
+                    </div>
+                    <a href="cv.pdf" download="CV_Kylian_Thevenet.pdf" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                        <span>Télécharger le PDF officiel</span>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 
-    <script src="main.js"></script>
-</body>
+    <!-- Toast Notification Rapide -->
+    <div id="toast-notification" class="toast-notification" role="status" aria-live="polite">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+        <span id="toast-message">Adresse e-mail copiée !</span>
+    </div>
 
+    <!-- Script JavaScript -->
+    <script src="main.js?v=2.3"></script>
+</body>
 </html>
