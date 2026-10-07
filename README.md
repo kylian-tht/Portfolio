@@ -6,7 +6,6 @@ Bienvenue sur le dépôt de mon portfolio personnel ! Ce projet est un site web 
 
 Vous pouvez consulter la version en ligne du site ici : **https://kylian-tht.github.io/Portfolio/**.
 
-![Aperçu du site](https://raw.githubusercontent.com/kylian-tht/Portfolio/refs/heads/main/images/Screen.png)
 
 ## 🛠️ Technologies utilisées
 
