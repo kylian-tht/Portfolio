@@ -11,7 +11,6 @@ Vous pouvez consulter la version en ligne du site ici : **https://kylian-tht.git
 
 *   **HTML5** : Pour la structure sémantique du site.
 *   **CSS3** : Pour la mise en forme et le design.
-*   **Google Fonts** : Pour la typographie (`Poppins`).
 
 ## 📂 Structure du projet
 
